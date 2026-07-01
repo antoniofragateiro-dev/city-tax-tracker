@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numa City Tax & VAT Tracker</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f7f7f7; color: #1a1a1a; font-size: 13px; }
+
+/* HEADER */
+.header { background: #111; color: #fff; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
+.header-left h1 { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; }
+.header-left .sub { font-size: 11px; color: #888; margin-top: 2px; }
+.header-right { display: flex; gap: 8px; align-items: center; }
+.live-badge { background: #d32f2f; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 20px; letter-spacing: 0.5px; }
+.last-run { font-size: 10px; color: #888; }
+
+/* SUMMARY PILLS */
+.summary-bar { display: flex; gap: 10px; padding: 12px 16px; background: #fff; border-bottom: 1px solid #eee; flex-wrap: wrap; }
+.sum-pill { display: flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.sum-pill .num { font-size: 18px; font-weight: 800; line-height: 1; }
+.pill-done { background: #e8f5e9; color: #1b5e20; }
+.pill-confirmed { background: #e3f2fd; color: #0d47a1; }
+.pill-watch { background: #fff3e0; color: #e65100; }
+.pill-favourable { background: #f3e5f5; color: #4a148c; }
+
+/* ALERT STRIP */
+.alert-strip { background: #fff8e1; border-left: 3px solid #ffc107; padding: 8px 16px; font-size: 12px; color: #5d4037; display: flex; gap: 6px; align-items: center; }
+.alert-strip strong { color: #d32f2f; }
+
+/* FILTER BAR */
+.filter-bar { display: flex; gap: 6px; padding: 12px 16px 0; flex-wrap: wrap; align-items: center; }
+.filter-btn { padding: 5px 14px; border-radius: 20px; border: 1.5px solid #ddd; background: #fff; font-size: 12px; font-weight: 600; cursor: pointer; color: #555; transition: all 0.15s; }
+.filter-btn:hover { border-color: #aaa; }
+.filter-btn.active { background: #111; color: #fff; border-color: #111; }
+.sort-label { font-size: 11px; color: #aaa; margin-left: auto; margin-right: 4px; }
+.sort-btn { padding: 4px 10px; border-radius: 6px; border: 1px solid #ddd; background: #fff; font-size: 11px; cursor: pointer; color: #555; }
+.sort-btn.active { background: #111; color: #fff; border-color: #111; }
+
+/* TABLE */
+.table-wrap { padding: 10px 16px 20px; }
+table { width: 100%; border-collapse: separate; border-spacing: 0 4px; }
+thead th { font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.5px; padding: 4px 10px 4px; text-align: left; cursor: pointer; user-select: none; white-space: nowrap; }
+thead th:hover { color: #333; }
+thead th .sort-arrow { margin-left: 3px; opacity: 0.4; }
+thead th.sorted .sort-arrow { opacity: 1; color: #111; }
+
+tbody tr { background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); border-radius: 6px; cursor: default; transition: box-shadow 0.15s; }
+tbody tr:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
+tbody tr.hidden { display: none; }
+td { padding: 10px 10px; vertical-align: middle; border-bottom: none; }
+td:first-child { border-radius: 6px 0 0 6px; padding-left: 14px; }
+td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
+
+/* DATE CELL */
+.date-cell { white-space: nowrap; }
+.date-month { font-size: 13px; font-weight: 700; color: #111; }
+.date-year { font-size: 10px; color: #aaa; }
+.date-tbd { font-size: 11px; color: #bbb; font-style: italic; }
+
+/* CITY CELL */
+.city-cell { min-width: 110px; }
+.city-name { font-weight: 600; font-size: 13px; }
+.city-country { font-size: 10px; color: #999; margin-top: 1px; }
+
+/* CHANGE CELL */
+.change-cell { max-width: 260px; }
+.change-title { font-size: 12px; font-weight: 600; color: #1a1a1a; line-height: 1.3; }
+.change-detail { font-size: 11px; color: #777; margin-top: 2px; line-height: 1.3; }
+
+/* IMPACT CELL */
+.impact-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.3px; white-space: nowrap; }
+.impact-critical { background: #fce4ec; color: #b71c1c; }
+.impact-notable { background: #fff3e0; color: #e65100; }
+.impact-minor { background: #e8f5e9; color: #2e7d32; }
+.impact-favourable { background: #ede7f6; color: #4527a0; }
+
+/* STATUS CELL */
+.status-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+.status-done { background: #e8f5e9; color: #1b5e20; }
+.status-confirmed { background: #e3f2fd; color: #0d47a1; }
+.status-watch { background: #fff3e0; color: #e65100; }
+.status-favourable { background: #f3e5f5; color: #4a148c; }
+
+/* LIKELIHOOD CELL */
+.likelihood-cell { min-width: 120px; }
+.like-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+.like-pct { font-size: 12px; font-weight: 800; color: #111; }
+.like-label { font-size: 10px; color: #aaa; }
+.like-bar-bg { height: 4px; background: #eee; border-radius: 2px; }
+.like-bar-fill { height: 4px; border-radius: 2px; }
+.fill-done { background: #43a047; }
+.fill-high { background: #1e88e5; }
+.fill-med { background: #fb8c00; }
+.fill-low { background: #bdbdbd; }
+.fill-fav { background: #8e24aa; }
+
+/* SOURCE CELL */
+.source-badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+.src-official { background: #1b5e20; color: #fff; }
+.src-multi { background: #0d47a1; color: #fff; }
+.src-single { background: #e0e0e0; color: #555; }
+.src-industry { background: #f3e5f5; color: #4a148c; }
+.source-note { font-size: 10px; color: #bbb; margin-top: 2px; }
+
+/* GROUP HEADERS */
+.group-row td { background: #f7f7f7; padding: 8px 14px 4px; font-size: 10px; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.8px; border-radius: 4px; }
+.group-row td { box-shadow: none; }
+.group-row:hover { box-shadow: none; }
+
+/* LEGEND */
+.legend { display: flex; gap: 16px; padding: 8px 16px 12px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #777; }
+.legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+
+/* FOOTNOTE */
+.footnote { padding: 8px 16px 16px; font-size: 10px; color: #bbb; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>🏨 Numa · City Tax & VAT Tracker</h1>
+    <div class="sub">Numa · Native by Numa · YAYS · LSA — all active European markets · Sorted by date · Confidence scored by source quality</div>
+  </div>
+  <div class="header-right">
+    <div class="last-run" id="lastRun"></div>
+    <div class="live-badge">⚡ DAILY SCAN</div>
+  </div>
+</div>
+
+<div class="summary-bar">
+  <div class="sum-pill pill-done"><span class="num" id="cnt-done">—</span> Already done</div>
+  <div class="sum-pill pill-confirmed"><span class="num" id="cnt-confirmed">—</span> Confirmed upcoming</div>
+  <div class="sum-pill pill-watch"><span class="num" id="cnt-watch">—</span> Under discussion</div>
+  <div class="sum-pill pill-favourable"><span class="num" id="cnt-fav">—</span> Favourable</div>
+</div>
+
+<div class="alert-strip">
+  ⚠️ <strong>Highest urgency:</strong> Edinburgh (5% levy live 24 Jul — 22 days), Amsterdam (VAT >33% combined), Barcelona (to €15 by 2029), Oslo (3% national levy Jul 2026), Vienna (mid-increase active), Belgium (VAT doubled). Prague increase proposed but not approved.
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filter('all', this)">All</button>
+  <button class="filter-btn" onclick="filter('done', this)">✅ Done</button>
+  <button class="filter-btn" onclick="filter('confirmed', this)">📅 Confirmed</button>
+  <button class="filter-btn" onclick="filter('watch', this)">🔍 Discussion</button>
+  <button class="filter-btn" onclick="filter('favourable', this)">💜 Favourable</button>
+  <span class="sort-label">Sort:</span>
+  <button class="sort-btn active" id="sort-date" onclick="sortBy('date', this)">Date ↕</button>
+  <button class="sort-btn" id="sort-like" onclick="sortBy('likelihood', this)">Likelihood ↕</button>
+  <button class="sort-btn" id="sort-impact" onclick="sortBy('impact', this)">Impact ↕</button>
+</div>
+
+<div class="table-wrap">
+<table id="mainTable">
+  <thead>
+    <tr>
+      <th data-col="date">Date <span class="sort-arrow">↕</span></th>
+      <th>City</th>
+      <th>Change</th>
+      <th>Impact</th>
+      <th>Status</th>
+      <th data-col="likelihood">Likelihood <span class="sort-arrow">↕</span></th>
+      <th>Source quality</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+  </tbody>
+</table>
+</div>
+
+<div class="legend">
+  <strong style="font-size:11px;color:#555;margin-right:4px;">Source quality:</strong>
+  <div class="legend-item"><div class="legend-dot" style="background:#1b5e20"></div> Official govt / legislation</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0d47a1"></div> Multiple credible press (3+)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#9e9e9e"></div> Single/limited press</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7b1fa2"></div> Industry / association</div>
+</div>
+
+<div class="footnote">
+  Likelihood % = weighted score: Official legislation = 100%; Official announcement = 90%; Parliament vote/roadmap = 85–90%; Multiple credible press + political momentum = 50–70%; Single source / early discussion = 20–40%.<br>
+  Data compiled July 2026. Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
+</div>
+
+<script>
+const rows = [
+  // STATUS: done | confirmed | watch | favourable
+  // IMPACT ORDER: critical=1, notable=2, minor=3, favourable=4 (for sort)
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇳🇱", city: "Amsterdam", country: "Netherlands",
+    title: "Accommodation VAT 9% → 21%",
+    detail: "National legislation. Combined with 12.5% tourist tax: >33% burden on room rate.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Dutch Govt / Tragento"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇧🇪", city: "Brussels / Antwerp", country: "Belgium",
+    title: "Accommodation VAT 6% → 12%",
+    detail: "National legislation. VAT doubled across all Belgian accommodation.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Belgian Gov legislation"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇮🇹", city: "Milan", country: "Italy",
+    title: "Imposta di soggiorno €7 → €10/night (4–5★)",
+    detail: "Ceiling raised to €12. Extra +€5 Olympics surcharge possible during Milano-Cortina 2026.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Italian Decreto Anticipi / Sky TG24"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇫🇷", city: "Paris", country: "France",
+    title: "Taxe de séjour CPI uplift + IDF Mobilités 200% surcharge",
+    detail: "Cap now €15.93/night for unclassified. IDF Mobilités surcharge (since 2025) triples effective rate.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "service-public.gouv.fr / taxedesejour.paris.fr"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇵🇹", city: "Lisbon", country: "Portugal",
+    title: "Tourist tax raised to €4/night",
+    detail: "Increase with a cap on the number of taxable nights per stay.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Municipality of Lisbon"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇵🇹", city: "Porto", country: "Portugal",
+    title: "Tourist tax raised to €3/night",
+    detail: "Increase with night cap per stay.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Municipality of Porto"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇩🇪", city: "Germany (all cities)", country: "Germany",
+    title: "Accommodation VAT 7% made permanent",
+    detail: "Favorable: 7% rate locked in permanently. Procedural change in Berlin: quarterly filing now required.",
+    impact: "favourable", impactLabel: "💜 Favourable", impactOrder: 4,
+    status: "favourable", statusLabel: "💜 Favourable",
+    likelihood: 100, likeClass: "fill-fav", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "German Bundestag / Berlin.de"
+  },
+  {
+    dateSort: 202604, dateLabel: "Apr 2026", dateYear: "",
+    flag: "🇪🇸", city: "Barcelona", country: "Spain",
+    title: "Tourist tax €7.50 → €12/night (4–5★ hotels)",
+    detail: "Municipal surcharge now €5/person/night. Parliament-approved roadmap continues to €15 by 2029.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Parlament de Catalunya / Ajuntament Barcelona"
+  },
+  {
+    dateSort: 202606, dateLabel: "Jun 2026", dateYear: "",
+    flag: "🇦🇹", city: "Vienna", country: "Austria",
+    title: "Tourist tax 3.2% → 5% (phase 1 of 2)",
+    detail: "Phase 1 now in effect. Phase 2 to 8% confirmed for 2027.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Wien.gv.at / internationalinvestment.biz"
+  },
+  {
+    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
+    flag: "🇮🇪", city: "Ireland", country: "Ireland",
+    title: "Hospitality VAT cut 13.5% → 9%",
+    detail: "Favourable: Government reversed hospitality VAT increase. In effect from 1 July 2026.",
+    impact: "favourable", impactLabel: "💜 Favourable", impactOrder: 4,
+    status: "favourable", statusLabel: "💜 Favourable",
+    likelihood: 100, likeClass: "fill-fav", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Irish Revenue / vatcalc.com"
+  },
+  // ─── CONFIRMED UPCOMING ───────────────────────────────────────────────────
+  {
+    dateSort: 202610, dateLabel: "Late 2026", dateYear: "",
+    flag: "🇪🇺", city: "EU — all markets", country: "European Union",
+    title: "EU VAT reform: TOMS overhaul confirmed",
+    detail: "European Commission reform of Tour Operators' Margin Scheme (unchanged since 1977). OTA and wholesale channel economics affected across all markets.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 85, likeClass: "fill-high", likeLabel: "EC confirmed",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "European Commission announcement / vatcalc.com"
+  },
+  {
+    dateSort: 202610, dateLabel: "2026", dateYear: "",
+    flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Edinburgh", country: "Scotland / UK",
+    title: "Visitor levy introduced (Scotland-wide enabling law passed)",
+    detail: "Scottish Parliament passed enabling legislation. Each council sets rate. Edinburgh widely expected to activate first. High risk for Native by Numa.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 90, likeClass: "fill-high", likeLabel: "Law passed",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Scottish Parliament legislation"
+  },
+  {
+    dateSort: 202610, dateLabel: "2026 (possible)", dateYear: "",
+    flag: "🇮🇹", city: "Milan", country: "Italy",
+    title: "Olympics surcharge +€5/night (if activated)",
+    detail: "Milano-Cortina 2026 Winter Olympics: host municipalities may add up to +€5/person/night. Milan council has not yet voted on activation.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 65, likeClass: "fill-med", likeLabel: "Framework exists",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Italian Decreto Anticipi"
+  },
+  {
+    dateSort: 202700, dateLabel: "2027", dateYear: "",
+    flag: "🇦🇹", city: "Vienna", country: "Austria",
+    title: "Tourist tax 5% → 8% (phase 2)",
+    detail: "Phase 2 officially announced. Will complete Vienna's two-step increase from 3.2% to 8%.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 92, likeClass: "fill-high", likeLabel: "Official roadmap",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "City of Vienna announcement"
+  },
+  {
+    dateSort: 202900, dateLabel: "2029", dateYear: "",
+    flag: "🇪🇸", city: "Barcelona", country: "Spain",
+    title: "Tourist tax escalation to €15/night",
+    detail: "Parliament-approved roadmap through 2029. Municipal surcharge rising incrementally each year.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 88, likeClass: "fill-high", likeLabel: "Parliament roadmap",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Parlament de Catalunya vote Feb 2026"
+  },
+  // ─── DONE — new cities ────────────────────────────────────────────────────
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇳🇱", city: "The Hague", country: "Netherlands (YAYS)",
+    title: "Tourist tax €6.20/person/night + VAT 21%",
+    detail: "€6.20/night per person for hotels and STR. Combined with national VAT increase to 21% (Jan 2026), total burden among highest in Netherlands after Amsterdam.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "denhaag.nl (official)"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇩🇪", city: "Cologne", country: "Germany",
+    title: "Bettensteuer 5% of net room rate",
+    detail: "Leisure stays only. Business travel exempt. Stable rate, no changes announced for 2026.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "trippz.com/cologne + German hospitality press"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇩🇪", city: "Frankfurt", country: "Germany",
+    title: "Bettensteuer 2% of net room rate",
+    detail: "Lowest city tax rate in the Numa Germany portfolio. Leisure stays only. Stable.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "favourable", statusLabel: "💜 Favourable",
+    likelihood: 100, likeClass: "fill-fav", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "trippz.com/frankfurt"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇩🇪", city: "Düsseldorf", country: "Germany",
+    title: "Bettensteuer applies (rate ~5%)",
+    detail: "Bettensteuer levied on leisure stays. Exact 2026 rate not confirmed in available official sources — check local Finanzamt for current figure.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-single", srcLabel: "Press", srcNote: "prostay.com / German hospitality sources"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇪🇸", city: "Seville", country: "Spain (Andalusia)",
+    title: "No tourist tax — Andalusia does not levy",
+    detail: "Andalusia is one of the few major Spanish regions with no accommodation tourist tax. Seville city council has raised the topic but Andalusian government rejected proposals. No tax in 2026.",
+    impact: "favourable", impactLabel: "💜 Favourable", impactOrder: 4,
+    status: "favourable", statusLabel: "💜 Favourable",
+    likelihood: 100, likeClass: "fill-fav", likeLabel: "No tax",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Chekin, healthplanspain.com, Preferente"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇪🇸", city: "Malaga", country: "Spain (Andalusia)",
+    title: "No tourist tax — Andalusia does not levy",
+    detail: "Andalusia has no regional tourist tax. Malaga and all other Andalusian cities are exempt. Local €2–3 proposals exist but have not been approved.",
+    impact: "favourable", impactLabel: "💜 Favourable", impactOrder: 4,
+    status: "favourable", statusLabel: "💜 Favourable",
+    likelihood: 100, likeClass: "fill-fav", likeLabel: "No tax",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Chekin, dreamproperty.pl, Revolut"
+  },
+  // ─── CONFIRMED UPCOMING — new cities ──────────────────────────────────────
+  {
+    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
+    flag: "🇳🇴", city: "Oslo", country: "Norway",
+    title: "National 3% accommodation levy — municipalities opt in from Jul 1",
+    detail: "Norwegian Parliament passed enabling legislation. From 1 July 2026, municipalities demonstrating tourism pressure may activate a 3% levy on hotels, guesthouses, and STR (campsites exempt). Oslo, Bergen, Tromsø expected among first to apply. Oslo activation date TBC.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 85, likeClass: "fill-high", likeLabel: "Law passed",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Forbes (Jun 2025), AFAR, Travelmole — law confirmed, Oslo opt-in expected"
+  },
+  // ─── UNDER DISCUSSION ─────────────────────────────────────────────────────
+  {
+    dateSort: 999901, dateLabel: "TBD", dateYear: "",
+    flag: "🇬🇧", city: "London", country: "UK",
+    title: "Tourist levy introduction (GLA proposal)",
+    detail: "Greater London Authority has debated a visitor levy multiple times. Political momentum building post-Edinburgh. Would affect all Native by Numa London properties.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "3+ UK outlets + GLA debate records"
+  },
+  {
+    dateSort: 999902, dateLabel: "TBD", dateYear: "",
+    flag: "🇮🇹", city: "Venice", country: "Italy",
+    title: "Further overnight tax increases",
+    detail: "Already at €15/night. Day-visitor fee pilot ongoing (€5/day). Council exploring higher overnight rates for shoulder season.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 62, likeClass: "fill-med", likeLabel: "~62%",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Il Sole 24 Ore, Sky TG24, local council minutes"
+  },
+  {
+    dateSort: 999903, dateLabel: "TBD", dateYear: "",
+    flag: "🇮🇹", city: "Rome", country: "Italy",
+    title: "Imposta di soggiorno increase (currently at max €10)",
+    detail: "Italian Decreto Anticipi framework allows further increases. Rome has not announced a hike but national pressure mounts. Watch city council sessions.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Lodgify, BusinessOnline, Italian hospitality associations"
+  },
+  {
+    dateSort: 999904, dateLabel: "TBD", dateYear: "",
+    flag: "🇮🇹", city: "Florence", country: "Italy",
+    title: "Imposta di soggiorno increase (currently ~€7)",
+    detail: "Same national framework as Rome. Florence historically follows with a lag. No council vote announced.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 50, likeClass: "fill-med", likeLabel: "~50%",
+    srcClass: "src-single", srcLabel: "Single press", srcNote: "Montanaritour, Italian hospitality blogs"
+  },
+  {
+    dateSort: 999905, dateLabel: "TBD", dateYear: "",
+    flag: "🇪🇸", city: "Valencia", country: "Spain",
+    title: "Regional tourist tax introduction",
+    detail: "Valencia Community assembly discussing Catalonia-style levy. Early stage. 132-unit Numa opening Q2 2026 increases our exposure.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 35, likeClass: "fill-low", likeLabel: "~35%",
+    srcClass: "src-single", srcLabel: "Single press", srcNote: "Hosteltur, regional assembly reports"
+  },
+  {
+    dateSort: 999906, dateLabel: "TBD", dateYear: "",
+    flag: "🇪🇸", city: "Madrid", country: "Spain",
+    title: "Tourist tax introduction",
+    detail: "Madrid has resisted while Barcelona escalates. Some political pressure from resident groups and budget constraints. Currently no formal proposal.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 22, likeClass: "fill-low", likeLabel: "~22%",
+    srcClass: "src-single", srcLabel: "Single press", srcNote: "Hosteltur, limited sources — political resistance remains strong"
+  },
+  {
+    dateSort: 999907, dateLabel: "TBD", dateYear: "",
+    flag: "🇨🇿", city: "Prague", country: "Czech Republic",
+    title: "Tourist tax increase — Prague 1 proposes €2 → ~€7/night",
+    detail: "Current rate: CZK 50 (~€2)/person/night. Prague 1 district Financial Committee proposed raising to CZK 175 (~€7). Not yet approved by full council. If passed, would be among highest in CEE.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 38, likeClass: "fill-low", likeLabel: "~38%",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "expats.cz, praguemorning.cz, travelinsider.blog"
+  },
+  {
+    dateSort: 999908, dateLabel: "TBD", dateYear: "",
+    flag: "🇪🇸", city: "Seville", country: "Spain (Andalusia)",
+    title: "Tourist tax introduction — Mayor pushing for €1–2/night",
+    detail: "Seville's mayor has stated desire to introduce €1–2/night levy during current term. Andalusian government previously rejected proposals. Requires regional legislative change.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 25, likeClass: "fill-low", likeLabel: "~25%",
+    srcClass: "src-single", srcLabel: "Single press", srcNote: "Preferente, nuevaeconomiaforum.org"
+  },
+  {
+    dateSort: 999909, dateLabel: "TBD", dateYear: "",
+    flag: "🇪🇸", city: "Malaga", country: "Spain (Andalusia)",
+    title: "Tourist tax introduction — local politicians discussing €2–3",
+    detail: "No Andalusian regional tax exists. Malaga politicians have informally discussed €2–3/night but no formal proposal or vote. Low probability in near term.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 20, likeClass: "fill-low", likeLabel: "~20%",
+    srcClass: "src-single", srcLabel: "Single press", srcNote: "dreamproperty.pl, healthplanspain.com"
+  },
+];
+
+// ─── STATE ────────────────────────────────────────────────────────────────
+let currentFilter = 'all';
+let currentSort = { col: 'date', dir: 1 };
+
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+
+  let visible = rows.filter(r => {
+    if (currentFilter === 'all') return true;
+    if (currentFilter === 'favourable') return r.status === 'favourable';
+    return r.status === currentFilter;
+  });
+
+  // Sort
+  visible.sort((a, b) => {
+    let va, vb;
+    if (currentSort.col === 'date') { va = a.dateSort; vb = b.dateSort; }
+    else if (currentSort.col === 'likelihood') { va = a.likelihood; vb = b.likelihood; }
+    else if (currentSort.col === 'impact') { va = a.impactOrder; vb = b.impactOrder; }
+    return (va - vb) * currentSort.dir;
+  });
+
+  // Group headers when showing all or by date
+  let lastGroup = null;
+
+  visible.forEach(r => {
+    // Group separator
+    let groupKey = null;
+    if (currentFilter === 'all') {
+      if (r.status === 'done' || r.status === 'favourable') groupKey = 'done';
+      else if (r.status === 'confirmed') groupKey = 'confirmed';
+      else groupKey = 'watch';
+    }
+
+    if (groupKey && groupKey !== lastGroup && currentSort.col === 'date') {
+      lastGroup = groupKey;
+      const labels = { done: '✅ Already in effect — sorted by date', confirmed: '📅 Confirmed upcoming — sorted by date', watch: '🔍 Under discussion — sorted by likelihood' };
+      const gr = document.createElement('tr');
+      gr.className = 'group-row';
+      gr.innerHTML = `<td colspan="7">${labels[groupKey]}</td>`;
+      tbody.appendChild(gr);
+    }
+
+    // Likelihood bar width
+    const barW = r.likelihood + '%';
+
+    const tr = document.createElement('tr');
+    tr.dataset.status = r.status;
+    tr.innerHTML = `
+      <td class="date-cell">
+        <div class="date-month">${r.dateLabel}</div>
+      </td>
+      <td class="city-cell">
+        <div class="city-name">${r.flag} ${r.city}</div>
+        <div class="city-country">${r.country}</div>
+      </td>
+      <td class="change-cell">
+        <div class="change-title">${r.title}</div>
+        <div class="change-detail">${r.detail}</div>
+      </td>
+      <td><span class="impact-badge impact-${r.impact}">${r.impactLabel}</span></td>
+      <td><span class="status-badge status-${r.status === 'favourable' ? 'favourable' : r.status}">${r.statusLabel}</span></td>
+      <td class="likelihood-cell">
+        <div class="like-header">
+          <span class="like-pct">${r.likelihood}%</span>
+          <span class="like-label">${r.likeLabel}</span>
+        </div>
+        <div class="like-bar-bg"><div class="like-bar-fill ${r.likeClass}" style="width:${barW}"></div></div>
+      </td>
+      <td>
+        <span class="source-badge ${r.srcClass}">${r.srcLabel}</span>
+        <div class="source-note">${r.srcNote}</div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Update summary counts
+  document.getElementById('cnt-done').textContent = rows.filter(r => r.status === 'done').length;
+  document.getElementById('cnt-confirmed').textContent = rows.filter(r => r.status === 'confirmed').length;
+  document.getElementById('cnt-watch').textContent = rows.filter(r => r.status === 'watch').length;
+  document.getElementById('cnt-fav').textContent = rows.filter(r => r.status === 'favourable').length;
+}
+
+function filter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Auto-sort: discussion → by likelihood
+  if (f === 'watch') { currentSort = { col: 'likelihood', dir: -1 }; }
+  else if (f === 'all' || f === 'done' || f === 'confirmed' || f === 'favourable') { currentSort = { col: 'date', dir: 1 }; }
+  renderTable();
+}
+
+function sortBy(col, btn) {
+  if (currentSort.col === col) {
+    currentSort.dir *= -1;
+  } else {
+    currentSort = { col, dir: col === 'likelihood' ? -1 : 1 };
+  }
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderTable();
+}
+
+// Last run timestamp
+document.getElementById('lastRun').textContent = 'Opened: ' + new Date().toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+
+renderTable();
+</script>
+</body>
+</html>
