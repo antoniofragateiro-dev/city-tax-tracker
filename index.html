@@ -140,7 +140,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>Highest urgency:</strong> Edinburgh (5% levy live 24 Jul — 22 days), Amsterdam (VAT >33% combined), Barcelona (to €15 by 2029), Oslo (3% national levy Jul 2026), Vienna (mid-increase active), Belgium (VAT doubled). Prague increase proposed but not approved.
+  ⚠️ <strong>NEW TODAY:</strong> Stuttgart Übernachtungssteuer active from 1 Jul · Glasgow levy confirmed Jan 2027 · Amsterdam tourist tax rising to 20% by 2031 | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul (22 days). London bill in Lords (75%).
 </div>
 
 <div class="filter-bar">
@@ -290,7 +290,17 @@ const rows = [
     likelihood: 100, likeClass: "fill-fav", likeLabel: "In effect",
     srcClass: "src-official", srcLabel: "Official", srcNote: "Irish Revenue / vatcalc.com"
   },
-  // ─── CONFIRMED UPCOMING ───────────────────────────────────────────────────
+  {
+    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
+    flag: "🇩🇪", city: "Stuttgart", country: "Germany",
+    title: "Übernachtungssteuer €3/person/night — active from 1 Jul 2026",
+    detail: "Council voted Feb 26 2026; flat rate of €3/person/night effective 1 July 2026. Applies to hotels and STR platforms. Minors exempt. Quarterly digital filing. ~€5M expected in 2026 partial year, ~€10M/yr from 2027. First evaluation by end 2028.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "stuttgart.de + Stuttgarter Nachrichten + AHGZ"
+  },
+    // ─── CONFIRMED UPCOMING ───────────────────────────────────────────────────
   {
     dateSort: 202610, dateLabel: "Late 2026", dateYear: "",
     flag: "🇪🇺", city: "EU — all markets", country: "European Union",
@@ -302,14 +312,14 @@ const rows = [
     srcClass: "src-official", srcLabel: "Official", srcNote: "European Commission announcement / vatcalc.com"
   },
   {
-    dateSort: 202610, dateLabel: "2026", dateYear: "",
+    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Edinburgh", country: "Scotland / UK",
-    title: "Visitor levy introduced (Scotland-wide enabling law passed)",
-    detail: "Scottish Parliament passed enabling legislation. Each council sets rate. Edinburgh widely expected to activate first. High risk for Native by Numa.",
+    title: "Visitor levy 5% — active from 24 Jul 2026 (22 days)",
+    detail: "Edinburgh Council confirmed 5% levy on accommodation cost, capped at first 5 nights. Live from 24 July 2026. Applies to bookings made on/after 1 Oct 2025 for stays from 24 Jul. Applies to hotels, B&Bs, STR, hostels. Numa Native by Numa exposure: HIGH.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "confirmed", statusLabel: "📅 Confirmed",
-    likelihood: 90, likeClass: "fill-high", likeLabel: "Law passed",
-    srcClass: "src-official", srcLabel: "Official", srcNote: "Scottish Parliament legislation"
+    likelihood: 100, likeClass: "fill-done", likeLabel: "Confirmed by council",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "edinburgh.gov.uk — levy declared Jul 2026"
   },
   {
     dateSort: 202610, dateLabel: "2026 (possible)", dateYear: "",
@@ -322,6 +332,16 @@ const rows = [
     srcClass: "src-official", srcLabel: "Official", srcNote: "Italian Decreto Anticipi"
   },
   {
+    dateSort: 202700, dateLabel: "2027", dateYear: "",
+    flag: "🇳🇱", city: "Amsterdam", country: "Netherlands",
+    title: "Tourist tax 12.5% → 16% (2027), rising to 20% by 2031",
+    detail: "Coalition agreement: tourist tax rises from 12.5% to 16% in 2027, then +1pp/year until 20% in 2031. Combined with VAT at 21%, Amsterdam's total tax burden on accommodation will be among highest in Europe. Numa YAYS exposure: HIGH.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 85, likeClass: "fill-high", likeLabel: "Coalition agreed",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Hospitality Management NL / Odeva / Amsterdam budget documents"
+  },
+    {
     dateSort: 202700, dateLabel: "2027", dateYear: "",
     flag: "🇦🇹", city: "Vienna", country: "Austria",
     title: "Tourist tax 5% → 8% (phase 2)",
@@ -413,16 +433,26 @@ const rows = [
     likelihood: 85, likeClass: "fill-high", likeLabel: "Law passed",
     srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Forbes (Jun 2025), AFAR, Travelmole — law confirmed, Oslo opt-in expected"
   },
-  // ─── UNDER DISCUSSION ─────────────────────────────────────────────────────
+  {
+    dateSort: 202701, dateLabel: "Jan 2027", dateYear: "",
+    flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Glasgow", country: "Scotland / UK",
+    title: "Visitor levy 5% — confirmed from 25 Jan 2027",
+    detail: "Glasgow City Council confirmed 5% levy on net accommodation cost (full length of stay). Businesses must apply levy to advance bookings from April 2026 for stays on/after 25 Jan 2027. Providers keep 1.5% to offset admin costs. High risk: YAYS, Native by Numa.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 95, likeClass: "fill-high", likeLabel: "Council confirmed",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "glasgow.gov.uk — scheme declared Jan 2027"
+  },
+    // ─── UNDER DISCUSSION ─────────────────────────────────────────────────────
   {
     dateSort: 999901, dateLabel: "TBD", dateYear: "",
     flag: "🇬🇧", city: "London", country: "UK",
     title: "Tourist levy introduction (GLA proposal)",
-    detail: "Greater London Authority has debated a visitor levy multiple times. Political momentum building post-Edinburgh. Would affect all Native by Numa London properties.",
+    detail: "English Devolution & Community Empowerment Bill now in House of Lords — gives mayoral authorities power to introduce visitor levies. Consultation closed Feb 2026. Mayor Khan committed. Earliest London implementation 2027-28. Would affect all Native by Numa London properties.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "watch", statusLabel: "🔍 Discussing",
-    likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "3+ UK outlets + GLA debate records"
+    likelihood: 75, likeClass: "fill-med", likeLabel: "~75%",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "UK Parliament / LCCI / travellingforbusiness.co.uk"
   },
   {
     dateSort: 999902, dateLabel: "TBD", dateYear: "",
