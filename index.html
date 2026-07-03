@@ -140,7 +140,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>NEW TODAY:</strong> Stuttgart Übernachtungssteuer active from 1 Jul · Glasgow levy confirmed Jan 2027 · Amsterdam tourist tax rising to 20% by 2031 | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul (22 days). London bill in Lords (75%).
+  ⚠️ <strong>NEW TODAY (3 Jul):</strong> Florence STR ban expanded to 9 districts beyond UNESCO area · Barcelona total burden €12/night (IEET doubled) · Oslo levy collection confirmed from 2027 only · Vienna 5% now active | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul (21 days). London bill in Lords (75%).
 </div>
 
 <div class="filter-bar">
@@ -264,14 +264,14 @@ const rows = [
     dateSort: 202604, dateLabel: "Apr 2026", dateYear: "",
     flag: "🇪🇸", city: "Barcelona", country: "Spain",
     title: "Tourist tax €7.50 → €12/night (4–5★ hotels)",
-    detail: "Municipal surcharge now €5/person/night. Parliament-approved roadmap continues to €15 by 2029.",
+    detail: "Catalan IEET base rate doubled (€3.50→€7 for 5★) + municipal surcharge €5/person/night = €12 total. 25% of IEET earmarked for housing. Surcharge rises €6 (2027) → €7 (2028) → €8 (2029), bringing 5★ total to €15.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
     srcClass: "src-official", srcLabel: "Official", srcNote: "Parlament de Catalunya / Ajuntament Barcelona"
   },
   {
-    dateSort: 202606, dateLabel: "Jun 2026", dateYear: "",
+    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
     flag: "🇦🇹", city: "Vienna", country: "Austria",
     title: "Tourist tax 3.2% → 5% (phase 1 of 2)",
     detail: "Phase 1 now in effect. Phase 2 to 8% confirmed for 2027.",
@@ -424,14 +424,14 @@ const rows = [
   },
   // ─── CONFIRMED UPCOMING — new cities ──────────────────────────────────────
   {
-    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
+    dateSort: 202700, dateLabel: "Jan 2027", dateYear: "",
     flag: "🇳🇴", city: "Oslo", country: "Norway",
     title: "National 3% accommodation levy — municipalities opt in from Jul 1",
-    detail: "Norwegian Parliament passed enabling legislation. From 1 July 2026, municipalities demonstrating tourism pressure may activate a 3% levy on hotels, guesthouses, and STR (campsites exempt). Oslo, Bergen, Tromsø expected among first to apply. Oslo activation date TBC.",
+    detail: "Norwegian framework (Lovdata 2026-05-22-895) entered force 1 Jul 2026. Municipalities can only begin collecting from Jan 2027 — must adopt regulations by 31 Dec 2026 to take effect. Oslo opt-in decision due by year-end. Bergen, Tromsø, Lofoten, Stavanger among likely early adopters. Oslo council decision pending.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "confirmed", statusLabel: "📅 Confirmed",
-    likelihood: 85, likeClass: "fill-high", likeLabel: "Law passed",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Forbes (Jun 2025), AFAR, Travelmole — law confirmed, Oslo opt-in expected"
+    likelihood: 70, likeClass: "fill-med", likeLabel: "~70%",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Regjeringen.no / Lovdata 2026-05-22-895 — framework live, charges from 2027"
   },
   {
     dateSort: 202701, dateLabel: "Jan 2027", dateYear: "",
@@ -443,7 +443,17 @@ const rows = [
     likelihood: 95, likeClass: "fill-high", likeLabel: "Council confirmed",
     srcClass: "src-official", srcLabel: "Official", srcNote: "glasgow.gov.uk — scheme declared Jan 2027"
   },
-    // ─── UNDER DISCUSSION ─────────────────────────────────────────────────────
+    {
+    dateSort: 202605, dateLabel: "May 2026", dateYear: "",
+    flag: "🇮🇹", city: "Florence (STR)", country: "Italy",
+    title: "STR ban expanded to 9 districts beyond UNESCO area",
+    detail: "City Council voted May 2026 to extend ban on new short-term tourist lets from UNESCO historic centre to 9 surrounding districts (Campo di Marte, Gavinana, San Jacopino, Rifredi, Libertà etc.), adding ~67,000 homes (total >100,000 in restriction zone). TAR Tuscany upheld restrictions in 19 legal challenges. Existing licences: 5-year validity, then expire. Numa exposure: any new Florence STR units outside UNESCO zone now also blocked.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "Confirmed",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "The Florentine (May 2026) / TAR Tuscany n.925/2026 / thelocal.it"
+  },
+  // ─── UNDER DISCUSSION ─────────────────────────────────────────────────────
   {
     dateSort: 999901, dateLabel: "TBD", dateYear: "",
     flag: "🇬🇧", city: "London", country: "UK",
