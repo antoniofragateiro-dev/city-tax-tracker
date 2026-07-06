@@ -140,7 +140,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>NEW TODAY (3 Jul):</strong> Florence STR ban expanded to 9 districts beyond UNESCO area · Barcelona total burden €12/night (IEET doubled) · Oslo levy collection confirmed from 2027 only · Vienna 5% now active | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul (21 days). London bill in Lords (75%).
+  ⚠️ <strong>NEW TODAY (6 Jul):</strong> Barcelona cruise tax €30 passed Catalan Parliament 2 Jul · Oslo may have rejected tourist tax opt-in (60%, needs verification) · Amsterdam 2027 16% coalition confirmed (90%) · Vienna STR mandatory registration imminent | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — <strong>18 days</strong>. Glasgow 25 Jan 2027 bookings apply now.
 </div>
 
 <div class="filter-bar">
@@ -314,7 +314,7 @@ const rows = [
   {
     dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Edinburgh", country: "Scotland / UK",
-    title: "Visitor levy 5% — active from 24 Jul 2026 (22 days)",
+    title: "Visitor levy 5% — active from 24 Jul 2026 (18 days)",
     detail: "Edinburgh Council confirmed 5% levy on accommodation cost, capped at first 5 nights. Live from 24 July 2026. Applies to bookings made on/after 1 Oct 2025 for stays from 24 Jul. Applies to hotels, B&Bs, STR, hostels. Numa Native by Numa exposure: HIGH.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "confirmed", statusLabel: "📅 Confirmed",
@@ -338,7 +338,7 @@ const rows = [
     detail: "Coalition agreement: tourist tax rises from 12.5% to 16% in 2027, then +1pp/year until 20% in 2031. Combined with VAT at 21%, Amsterdam's total tax burden on accommodation will be among highest in Europe. Numa YAYS exposure: HIGH.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "confirmed", statusLabel: "📅 Confirmed",
-    likelihood: 85, likeClass: "fill-high", likeLabel: "Coalition agreed",
+    likelihood: 90, likeClass: "fill-high", likeLabel: "Coalition confirmed",
     srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Hospitality Management NL / Odeva / Amsterdam budget documents"
   },
     {
@@ -360,6 +360,16 @@ const rows = [
     status: "confirmed", statusLabel: "📅 Confirmed",
     likelihood: 88, likeClass: "fill-high", likeLabel: "Parliament roadmap",
     srcClass: "src-official", srcLabel: "Official", srcNote: "Parlament de Catalunya vote Feb 2026"
+  },
+  {
+    dateSort: 202609, dateLabel: "Autumn 2026", dateYear: "",
+    flag: "🇪🇸", city: "Barcelona (cruise)", country: "Spain",
+    title: "Cruise day-tripper tax €11 → €30 (Parliament vote 2 Jul 2026)",
+    detail: "Catalan Parliament voted 2 July 2026 to raise tourist tax for cruise stopovers (≤12h) from €11 to €30 per passenger. PSC + BComú + ERC voted in favour. Effective autumn 2026. Homeport cruises (start/end in Barcelona) exempt. Does not affect hotel overnight IEET/surcharge rates. Expected to reduce cruise day-tripper volumes to Barcelona.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 95, likeClass: "fill-high", likeLabel: "Parliament passed",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Ara.cat / Euronews — Catalan Parliament vote 2 Jul 2026"
   },
   // ─── DONE — new cities ────────────────────────────────────────────────────
   {
@@ -426,12 +436,12 @@ const rows = [
   {
     dateSort: 202700, dateLabel: "Jan 2027", dateYear: "",
     flag: "🇳🇴", city: "Oslo", country: "Norway",
-    title: "National 3% accommodation levy — municipalities opt in from Jul 1",
-    detail: "Norwegian framework (Lovdata 2026-05-22-895) entered force 1 Jul 2026. Municipalities can only begin collecting from Jan 2027 — must adopt regulations by 31 Dec 2026 to take effect. Oslo opt-in decision due by year-end. Bergen, Tromsø, Lofoten, Stavanger among likely early adopters. Oslo council decision pending.",
+    title: "National 3% accommodation levy — Oslo may have rejected opt-in",
+    detail: "Norwegian framework (Lovdata 2026-05-22-895) entered force 1 Jul 2026. Multiple sources report Oslo city council formally rejected the visitor contribution for the foreseeable future. Other municipalities (Bergen, Tromsø, Stavanger, Lofoten) opted in. If confirmed, Oslo exposure is removed. Verification needed via oslo.kommune.no.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
-    status: "confirmed", statusLabel: "📅 Confirmed",
-    likelihood: 70, likeClass: "fill-med", likeLabel: "~70%",
-    srcClass: "src-official", srcLabel: "Official", srcNote: "Regjeringen.no / Lovdata 2026-05-22-895 — framework live, charges from 2027"
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 35, likeClass: "fill-low", likeLabel: "~35% (possibly rejected)",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Travel & Tour World / AFAR — Oslo opt-in status needs official confirmation (Jul 2026)"
   },
   {
     dateSort: 202701, dateLabel: "Jan 2027", dateYear: "",
@@ -455,6 +465,16 @@ const rows = [
   },
   // ─── UNDER DISCUSSION ─────────────────────────────────────────────────────
   {
+    dateSort: 202612, dateLabel: "2026 (imminent)", dateYear: "",
+    flag: "🇦🇹", city: "Vienna (STR)", country: "Austria",
+    title: "Mandatory STR registration + 80% residential floor area rule",
+    detail: "Mayor Ludwig announced (22–23 Jun 2026): all STR hosts must register or face fines up to €50,000; buildings limited to max 20% tourist accommodation use; separate entrances and minimum rooms required for commercial STRs. SPÖ–NEOS coalition agreement expected 'in coming days' as of late June 2026. Potential impact on any Numa/YAYS Vienna units classified as STR rather than hotel.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 65, likeClass: "fill-med", likeLabel: "~65%",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "The Local Austria / Vienna.at — announcement Jun 2026, coalition agreement pending"
+  },
+  {
     dateSort: 999901, dateLabel: "TBD", dateYear: "",
     flag: "🇬🇧", city: "London", country: "UK",
     title: "Tourist levy introduction (GLA proposal)",
@@ -467,8 +487,8 @@ const rows = [
   {
     dateSort: 999902, dateLabel: "TBD", dateYear: "",
     flag: "🇮🇹", city: "Venice", country: "Italy",
-    title: "Further overnight tax increases",
-    detail: "Already at €15/night. Day-visitor fee pilot ongoing (€5/day). Council exploring higher overnight rates for shoulder season.",
+    title: "Day-tripper fee hike proposed to €30–50 on critical days",
+    detail: "Day-tripper entry fee active: €5–€10/day. Venice mayor proposed raising to €30–€50 on the most critical days (pending national approval). 2025 revenue: €5.4M in 4 months, 720K+ paying visitors. 10–15% reduction in peak-hour day-tripper arrivals; overnight volumes unaffected.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 62, likeClass: "fill-med", likeLabel: "~62%",
