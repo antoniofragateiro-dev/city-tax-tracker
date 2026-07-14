@@ -146,7 +146,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (14 Jul):</strong> NEW — Bremen Bettensteuer 5%→5.5% (Jan 2026, confirmed) · NEW — Bonn Beherbergungssteuer 6%→7% (Jan 2026, confirmed) · East Lothian 5% consultation open · Greater Manchester levy "confirmed for 2027/28" · Oslo formally REJECTED levy | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — <strong>10 days</strong>. Glasgow 25 Jan 2027 bookings apply now.
+  ⚠️ <strong>UPDATED (14 Jul):</strong> Amsterdam 2027 confidence upgraded 80%→85% (coalition agreement Jun 2026) · Prague cap upgrade 38%→50% (Czech MPs backing CZK 50→100) · East Lothian 5% consultation open · Greater Manchester levy "confirmed for 2027/28" · Oslo formally REJECTED levy | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — <strong>10 days</strong>. Glasgow 25 Jan 2027 bookings apply now.
 </div>
 
 <div class="filter-bar">
@@ -306,7 +306,7 @@ const rows = [
     likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
     srcClass: "src-official", srcLabel: "Official", srcNote: "stuttgart.de + Stuttgarter Nachrichten + AHGZ"
   },
-    // ─── CONFIRMED UPCOMING ───────────────────────────────────────────────────
+  // ─── CONFIRMED UPCOMING ───────────────────────────────────────────────────
   {
     dateSort: 202610, dateLabel: "Late 2026", dateYear: "",
     flag: "🇪🇺", city: "EU — all markets", country: "European Union",
@@ -341,11 +341,11 @@ const rows = [
     dateSort: 202700, dateLabel: "2027", dateYear: "",
     flag: "🇳🇱", city: "Amsterdam", country: "Netherlands",
     title: "Tourist tax 12.5% → 16% (2027), rising to 20% by 2031",
-    detail: "PRO Amsterdam + D66 coalition/governing agreement (not yet passed into law — council vote required). Rising +1pp/year to 20% in 2031. NOS: combined burden >33.5% in 2027. ⚠️ KHN (Dutch hospitality assoc.) opposing but also opposed 12.5% which passed anyway. High practical risk. Numa YAYS exposure: HIGH.",
+    detail: "PRO Amsterdam + D66 coalition agreement (June 2026, formally confirmed — council vote still required). Rising +1pp/year to 20% in 2031. Combined burden >33.5% in 2027. KHN (Dutch hospitality assoc.) opposing but also opposed 12.5% which passed anyway. High practical risk. Confidence upgraded 80%→85% (14 Jul 2026). Numa YAYS exposure: HIGH.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "watch", statusLabel: "🔍 Discussing",
-    likelihood: 80, likeClass: "fill-med", likeLabel: "Coalition plan (vote pending)",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Hospitality Management NL / NOS / KHN — coalition agreement, council vote pending"
+    likelihood: 85, likeClass: "fill-high", likeLabel: "Coalition confirmed (vote pending)",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Hospitality Management NL / NOS / KHN — coalition agreement confirmed Jun 2026"
   },
   {
     dateSort: 202700, dateLabel: "Jul 2027", dateYear: "",
@@ -412,7 +412,7 @@ const rows = [
     dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
     flag: "🇩🇪", city: "Bremen", country: "Germany",
     title: "Bettensteuer 5% → 5.5% from 1 Jan 2026",
-    detail: "Bremen raised its Bettensteuer from 5% to 5.5% of the overnight accommodation fee. SenFin Bremen expects ≥€1M additional annual revenue. Applies to hotels, guesthouses, holiday homes, and STR platforms. Confirmed 14 Jul 2026 — was missing from baseline.",
+    detail: "Bremen raised its Bettensteuer from 5% to 5.5% of the overnight accommodation fee. SenFin Bremen expects ≥€1M additional annual revenue. Applies to hotels, guesthouses, holiday homes, and STR platforms.",
     impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
@@ -422,7 +422,7 @@ const rows = [
     dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
     flag: "🇩🇪", city: "Bonn", country: "Germany",
     title: "Beherbergungssteuer 6% → 7% from 1 Jan 2026",
-    detail: "Bonn raised its accommodation tax from 6% to 7% of accommodation expenditure (incl. VAT). Council decision March 2025, statutory approval 3 Jul 2025. Applies to hotels, pensions, and STR platforms. Confirmed 14 Jul 2026 — was missing from baseline.",
+    detail: "Bonn raised its accommodation tax from 6% to 7% of accommodation expenditure (incl. VAT). Council decision March 2025, statutory approval 3 Jul 2025. Applies to hotels, pensions, and STR platforms.",
     impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
@@ -524,11 +524,11 @@ const rows = [
     dateSort: 202800, dateLabel: "2028 (proposed)", dateYear: "",
     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "East Lothian", country: "Scotland / UK",
     title: "Visitor levy 5% — consultation launched Jul 2026",
-    detail: "East Lothian Council launched a 5% overnight visitor levy public consultation in July 2026. Consultation runs to September 2026. If approved, could be in place by summer 2028. Confirms the pattern of Scottish councils following Edinburgh. No current Numa properties in East Lothian but signals expanding Scottish levy geography. NEW 13 Jul 2026.",
+    detail: "East Lothian Council launched a 5% overnight visitor levy public consultation in July 2026. Unanimously approved by councillors 23 June. Consultation runs to September 2026. If approved, could be in place by summer 2028. Confirms pattern of Scottish councils following Edinburgh. No current Numa properties in East Lothian but signals expanding Scottish levy geography. NEW 13 Jul 2026.",
     impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 35, likeClass: "fill-low", likeLabel: "~35%",
-    srcClass: "src-single", srcLabel: "Press", srcNote: "midlothianview.com (Jul 2026)"
+    srcClass: "src-official", srcLabel: "Official", srcNote: "eastlothian.gov.uk — consultation confirmed Jul 2026"
   },
   {
     dateSort: 999902, dateLabel: "TBD", dateYear: "",
@@ -583,12 +583,12 @@ const rows = [
   {
     dateSort: 999907, dateLabel: "TBD", dateYear: "",
     flag: "🇨🇿", city: "Prague", country: "Czech Republic",
-    title: "Tourist tax increase — Prague 1 proposes €2 → ~€7/night",
-    detail: "Current rate: CZK 50 (~€2)/person/night. Prague 1 district Financial Committee proposed raising to CZK 175 (~€7). National legislative cap review was expected by mid-2026 but was not completed before Czech elections. Decision timeline now extended into 2027.",
+    title: "Tourist tax increase — cap raise CZK 50 → 100 (national), Prague 1 wants 200",
+    detail: "Current rate: CZK 50 (~€2)/person/night. Czech MPs backing national cap raise to CZK 100 (~€4). Prague 1 district wants CZK 200 (~€8). Decision expected late 2026/early 2027. If passed, new rates effective 2027. Confidence upgraded 38%→50% (14 Jul 2026) on MP backing.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "watch", statusLabel: "🔍 Discussing",
-    likelihood: 38, likeClass: "fill-low", likeLabel: "~38%",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "expats.cz, praguemorning.cz — decision delayed post-elections"
+    likelihood: 50, likeClass: "fill-med", likeLabel: "~50%",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "praguemorning.cz / expats.cz / schengenvisainfo.com — MPs backing cap raise Jul 2026"
   },
   {
     dateSort: 999908, dateLabel: "TBD", dateYear: "",
