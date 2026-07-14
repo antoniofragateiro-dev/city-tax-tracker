@@ -146,7 +146,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (13 Jul):</strong> NEW — East Lothian (Scotland) 5% levy consultation open (summer 2028 target) · NEW — Greater Manchester visitor levy "confirmed for 2027/28" per mayor candidate · Oslo formally REJECTED visitor levy — favourable for Numa Oslo ops · Vienna STR mandatory registry expected 2026 | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — <strong>11 days</strong>. Glasgow 25 Jan 2027 bookings apply now.
+  ⚠️ <strong>UPDATED (14 Jul):</strong> NEW — Bremen Bettensteuer 5%→5.5% (Jan 2026, confirmed) · NEW — Bonn Beherbergungssteuer 6%→7% (Jan 2026, confirmed) · East Lothian 5% consultation open · Greater Manchester levy "confirmed for 2027/28" · Oslo formally REJECTED levy | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — <strong>10 days</strong>. Glasgow 25 Jan 2027 bookings apply now.
 </div>
 
 <div class="filter-bar">
@@ -189,7 +189,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 
 <div class="footnote">
   Likelihood % = weighted score: Official legislation/enacted law = 100%; Official government announcement = 90%; Parliament/council vote passed = 85–95%; Coalition/governing agreement (council vote still required) = 70–80%; Multiple credible press + political momentum = 50–70%; Single source / early discussion = 20–40%. ⚠️ Rule: Coalition agreement ≠ council vote ≠ enacted law — each stage tracked separately.<br>
-  Data compiled 13 July 2026. Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
+  Data compiled 14 July 2026. Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
 </div>
 
 <script>
@@ -320,8 +320,8 @@ const rows = [
   {
     dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Edinburgh", country: "Scotland / UK",
-    title: "Visitor levy 5% — active from 24 Jul 2026 (11 days)",
-    detail: "Edinburgh Council confirmed 5% levy on accommodation cost, capped at first 5 nights. Live from 24 July 2026. Applies to bookings made on/after 1 Oct 2025 for stays from 24 Jul. Applies to hotels, B&Bs, STR, hostels. First payments due Oct 2026. Numa Native by Numa exposure: HIGH.",
+    title: "Visitor levy 5% — active from 24 Jul 2026 (10 days)",
+    detail: "Edinburgh Council confirmed 5% levy on accommodation cost, capped at first 5 nights. Live from 24 July 2026. Applies to bookings made on/after 1 Oct 2025 for stays from 24 Jul. Applies to hotels, B&Bs, STR, hostels. First payments due Oct 2026. Scotland Visitor Levy (Amendment) Act (Royal Assent 21 May 2026) gives councils flexibility on fixed vs. % charging — Edinburgh stays percentage-based. Numa Native by Numa exposure: HIGH.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "confirmed", statusLabel: "📅 Confirmed",
     likelihood: 100, likeClass: "fill-done", likeLabel: "Confirmed by council",
@@ -407,6 +407,26 @@ const rows = [
     status: "favourable", statusLabel: "💜 Favourable",
     likelihood: 100, likeClass: "fill-fav", likeLabel: "In effect",
     srcClass: "src-official", srcLabel: "Official", srcNote: "trippz.com/frankfurt"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇩🇪", city: "Bremen", country: "Germany",
+    title: "Bettensteuer 5% → 5.5% from 1 Jan 2026",
+    detail: "Bremen raised its Bettensteuer from 5% to 5.5% of the overnight accommodation fee. SenFin Bremen expects ≥€1M additional annual revenue. Applies to hotels, guesthouses, holiday homes, and STR platforms. Confirmed 14 Jul 2026 — was missing from baseline.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "SenFin Bremen / kanzlei-hsp.de (Jan 2026)"
+  },
+  {
+    dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
+    flag: "🇩🇪", city: "Bonn", country: "Germany",
+    title: "Beherbergungssteuer 6% → 7% from 1 Jan 2026",
+    detail: "Bonn raised its accommodation tax from 6% to 7% of accommodation expenditure (incl. VAT). Council decision March 2025, statutory approval 3 Jul 2025. Applies to hotels, pensions, and STR platforms. Confirmed 14 Jul 2026 — was missing from baseline.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "bonn.de (official press release Jan 2026)"
   },
   {
     dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
