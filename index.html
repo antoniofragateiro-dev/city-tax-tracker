@@ -146,7 +146,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (14 Jul):</strong> London Devolution Act passed Royal Assent (Apr 2026) — confidence 75%→90% · Manchester upgraded 40%→65% · Amsterdam 2027 85% · Prague cap 50% · East Lothian 5% consultation open · Oslo REJECTED levy | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — <strong>10 days</strong>. Glasgow 25 Jan 2027 bookings apply now.
+  ⚠️ <strong>UPDATED (15 Jul):</strong> NEW — Barcelona: Mayor proposes accelerating max surcharge to 2027 (40%) · Milan 2027 post-Olympics rate reversion watch added (55%, favorable) | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — <strong>9 days</strong>. Glasgow 25 Jan 2027 bookings apply now. Barcelona cruise tax €30 confirmed (Parliament 2 Jul, 95%).
 </div>
 
 <div class="filter-bar">
@@ -189,7 +189,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 
 <div class="footnote">
   Likelihood % = weighted score: Official legislation/enacted law = 100%; Official government announcement = 90%; Parliament/council vote passed = 85–95%; Coalition/governing agreement (council vote still required) = 70–80%; Multiple credible press + political momentum = 50–70%; Single source / early discussion = 20–40%. ⚠️ Rule: Coalition agreement ≠ council vote ≠ enacted law — each stage tracked separately.<br>
-  Data compiled 14 July 2026. Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
+  Data compiled 15 July 2026. Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
 </div>
 
 <script>
@@ -219,8 +219,8 @@ const rows = [
   {
     dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
     flag: "🇮🇹", city: "Milan", country: "Italy",
-    title: "Imposta di soggiorno €7 → €10/night (4–5★)",
-    detail: "Ceiling raised to €12. Extra +€5 Olympics surcharge possible during Milano-Cortina 2026.",
+    title: "Imposta di soggiorno raised: STR/B&B €9.50 · 4★ €10 · 5★ €12/night (2026 only)",
+    detail: "Jan 2026: Olympic rates set (Resolution 1418). Apr 2026: 5★ further raised to €12 (Resolution 144). STR/B&B/holiday homes €9.50. 3★ €7.40. Rates valid 2026 only — expect reversion Jan 2027 unless new council decision.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
@@ -609,6 +609,26 @@ const rows = [
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 20, likeClass: "fill-low", likeLabel: "~20%",
     srcClass: "src-single", srcLabel: "Single press", srcNote: "dreamproperty.pl, healthplanspain.com"
+  },
+  {
+    dateSort: 202700, dateLabel: "Jan 2027 (watch)", dateYear: "",
+    flag: "🇮🇹", city: "Milan", country: "Italy",
+    title: "Tourist tax reversion after Olympics — rates may drop back to 2025 levels",
+    detail: "Milan's 2026 rates (5★: €12; 4★: €10; STR/B&B: €9.50) are temporary, approved only for 2026 (Milano-Cortina Winter Olympics, Resolution 1418 Nov 2025 + Resolution 144 Feb 2026). From Jan 2027, city expected to revert to pre-Olympic levels unless a new council resolution is passed. Favorable signal for Numa Milan properties. Monitor council sessions Q4 2026. NEW 15 Jul 2026.",
+    impact: "favourable", impactLabel: "💜 Favourable", impactOrder: 4,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "direzionehotel.it / wantedinmilan.com — resolution specifies 2026-only"
+  },
+  {
+    dateSort: 202700, dateLabel: "2027 (proposed)", dateYear: "",
+    flag: "🇪🇸", city: "Barcelona", country: "Spain",
+    title: "Surcharge acceleration: Mayor proposes €8 already in 2027 (skip €6/€7 steps)",
+    detail: "Mayor Collboni proposed (13 May 2026) to bring municipal surcharge directly to €8/night in 2027, skipping approved €6 (2027) and €7 (2028) steps. Would raise 5★ hotel total from €12 to €15 in 2027 rather than 2029. Requires Catalan Parliament vote; opposition from PP, Vox, Junts makes passage uncertain. Separate from cruise tax (€30, Parliament-confirmed). NEW 15 Jul 2026.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "watch", statusLabel: "🔍 Discussing",
+    likelihood: 40, likeClass: "fill-low", likeLabel: "~40%",
+    srcClass: "src-single", srcLabel: "Press", srcNote: "Metròpoli Oberta / El Español — mayoral proposal May 2026, not yet voted"
   },
   {
     dateSort: 202800, dateLabel: "2028 (proposed)", dateYear: "",
