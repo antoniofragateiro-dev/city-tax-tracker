@@ -146,7 +146,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (16 Jul):</strong> Amsterdam 2027 rate confirmed 16% by NOS/KHN (90%) · Edinburgh 5% levy live 24 Jul — <strong>8 days</strong> · Drive brief dated 7 Jul reviewed — no new cities vs. baseline | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — 8 days. Glasgow 25 Jan 2027 bookings apply now. Barcelona cruise tax €30 confirmed (95%).
+  ⚠️ <strong>UPDATED (17 Jul):</strong> Munich STR mandatory registration from 1 Aug 2026 (NEW) · Edinburgh 5% levy live 24 Jul — <strong>7 days</strong> · Amsterdam 2027 confirmed 90% · Prague upgraded 50%→55% | <strong>ACTION:</strong> Edinburgh 5% levy live 24 Jul — 7 days. Glasgow 25 Jan 2027 bookings apply now.
 </div>
 
 <div class="filter-bar">
@@ -306,7 +306,17 @@ const rows = [
     likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
     srcClass: "src-official", srcLabel: "Official", srcNote: "stuttgart.de + Stuttgarter Nachrichten + AHGZ"
   },
-  // ─── CONFIRMED UPCOMING ───────────────────────────────────────────────────
+  {
+    dateSort: 202608, dateLabel: "Aug 2026", dateYear: "",
+    flag: "🇩🇪", city: "Munich (STR)", country: "Germany",
+    title: "Mandatory STR registration number from 1 Aug 2026 (NEW)",
+    detail: "Munich city council (18 Jun 2026) approved mandatory registration for all STR listings on online platforms. Takes force 1 Aug 2026. Hosts must register with Sozialreferat before listing; registration number must appear in all ads. City IT portal not ready at launch — confirmed go-live date to be announced separately. 56-night/year cap for owner-occupied homes unchanged. Fines up to €500,000 per violation. Platforms must transmit data to Bundesnetzagentur. South Germany Numa exposure: HIGH for any STR-classified units. NEW 17 Jul 2026.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 95, likeClass: "fill-high", likeLabel: "Council passed",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "in-muenchen.de / hospitalityinside.com — council vote 18 Jun 2026"
+  },
+    // ─── CONFIRMED UPCOMING ───────────────────────────────────────────────────
   {
     dateSort: 202610, dateLabel: "Late 2026", dateYear: "",
     flag: "🇪🇺", city: "EU — all markets", country: "European Union",
@@ -320,7 +330,7 @@ const rows = [
   {
     dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
     flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Edinburgh", country: "Scotland / UK",
-    title: "Visitor levy 5% — active from 24 Jul 2026 (10 days)",
+    title: "Visitor levy 5% — active from 24 Jul 2026 (7 days)",
     detail: "Edinburgh Council confirmed 5% levy on accommodation cost, capped at first 5 nights. Live from 24 July 2026. Applies to bookings made on/after 1 Oct 2025 for stays from 24 Jul. Applies to hotels, B&Bs, STR, hostels. First payments due Oct 2026. Scotland Visitor Levy (Amendment) Act (Royal Assent 21 May 2026) gives councils flexibility on fixed vs. % charging — Edinburgh stays percentage-based. Numa Native by Numa exposure: HIGH.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "confirmed", statusLabel: "📅 Confirmed",
@@ -341,10 +351,10 @@ const rows = [
     dateSort: 202700, dateLabel: "2027", dateYear: "",
     flag: "🇳🇱", city: "Amsterdam", country: "Netherlands",
     title: "Tourist tax 12.5% → 16% (2027), rising to 20% by 2031",
-    detail: "PRO Amsterdam + D66 coalition agreement (June 2026, formally confirmed — council vote still required). Rising +1pp/year to 20% in 2031. Combined burden >33.5% in 2027. KHN (Dutch hospitality assoc.) opposing but also opposed 12.5% which passed anyway. High practical risk. Confidence upgraded 80%→85% (14 Jul 2026), 85%→90% (16 Jul 2026) — NOS/KHN national press confirmation of 16% rate in 2027. Numa YAYS exposure: HIGH.",
+    detail: "PRO Amsterdam + D66 coalition agreement (June 2026, formally confirmed — council vote still required). Rising +1pp/year to 20% in 2031. Combined burden >33.5% in 2027. KHN (Dutch hospitality assoc.) opposing but also opposed 12.5% which passed anyway. High practical risk. Confidence upgraded 80%→85% (14 Jul 2026), 85%→90% (16 Jul 2026), confirmed 90% (17 Jul 2026) — Drive brief 14 Jul + Skift confirmation. Numa YAYS exposure: HIGH.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "watch", statusLabel: "🔍 Discussing",
-    likelihood: 85, likeClass: "fill-high", likeLabel: "Coalition confirmed (vote pending)",
+    likelihood: 90, likeClass: "fill-high", likeLabel: "Coalition confirmed (vote pending)",
     srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Hospitality Management NL / NOS / KHN — coalition agreement confirmed Jun 2026"
   },
   {
@@ -584,10 +594,10 @@ const rows = [
     dateSort: 999907, dateLabel: "TBD", dateYear: "",
     flag: "🇨🇿", city: "Prague", country: "Czech Republic",
     title: "Tourist tax increase — cap raise CZK 50 → 100 (national), Prague 1 wants 200",
-    detail: "Current rate: CZK 50 (~€2)/person/night. Czech MPs backing national cap raise to CZK 100 (~€4). Prague 1 district wants CZK 200 (~€8). Decision expected late 2026/early 2027. If passed, new rates effective 2027. Confidence upgraded 38%→50% (14 Jul 2026) on MP backing.",
+    detail: "Current rate: CZK 50 (~€2)/person/night. Czech MPs backing national cap raise to CZK 100 (~€4). Prague 1 district wants CZK 200 (~€8). Decision expected late 2026/early 2027. If passed, new rates effective 2027. Confidence upgraded 38%→50% (14 Jul 2026), 50%→55% (17 Jul 2026) — Drive brief 14 Jul + web sources confirm intensifying advocacy.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "watch", statusLabel: "🔍 Discussing",
-    likelihood: 50, likeClass: "fill-med", likeLabel: "~50%",
+    likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
     srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "praguemorning.cz / expats.cz / schengenvisainfo.com — MPs backing cap raise Jul 2026"
   },
   {
