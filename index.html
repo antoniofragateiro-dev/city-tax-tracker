@@ -146,7 +146,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (24 Jul):</strong> Edinburgh 5% levy <strong>LIVE TODAY (Fri 24 Jul)</strong> · Vila Nova de Gaia €3/night officially published in Diário da República 22 Jul — in force ~21 Aug 2026 · Barcelona 2028 STR-licence ban + cruise levy to €24 · France nationwide STR registration + income-tax tightening · Brussels eases STR for private hosts 1 Jan 2027 (pros unaffected) · Prague CZK 200 (~€8) proposal 2027 · Munich STR registration 1 Aug 2026 | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS collection is running. Glasgow 25 Jan 2027 bookings apply now.
+  ⚠️ <strong>UPDATED (25 Jul):</strong> Edinburgh 5% levy <strong>NOW LIVE (since Fri 24 Jul)</strong> — first UK city-wide visitor levy · Vila Nova de Gaia €3/night published in Diário da República 22 Jul — in force ~21 Aug 2026 · France nationwide STR registration (13-digit no. on all ads, €10k fine) + platform data centralisation (Decree 2026-196) · Prague CZK 200 (~€8) proposal, national decision overdue, rates 2027 if passed · Munich STR registration 1 Aug 2026 · Brussels eases STR for private hosts 1 Jan 2027 (pros unaffected) | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS/channel collection is running. Glasgow 25 Jan 2027 bookings apply now.
 </div>
 
 <div class="filter-bar">
@@ -189,7 +189,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 
 <div class="footnote">
   Likelihood % = weighted score: Official legislation/enacted law = 100%; Official government announcement = 90%; Parliament/council vote passed = 85–95%; Coalition/governing agreement (council vote still required) = 70–80%; Multiple credible press + political momentum = 50–70%; Single source / early discussion = 20–40%. ⚠️ Rule: Coalition agreement ≠ council vote ≠ enacted law — each stage tracked separately.<br>
-  Data compiled 23 July 2026. Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
+  Data compiled 25 July 2026. Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
 </div>
 
 <script>
@@ -237,10 +237,20 @@ const rows = [
     srcClass: "src-official", srcLabel: "Official", srcNote: "service-public.gouv.fr / taxedesejour.paris.fr"
   },
   {
+    dateSort: 202605, dateLabel: "May 2026", dateYear: "",
+    flag: "🇫🇷", city: "France (all cities)", country: "France",
+    title: "Nationwide STR registration + platform data centralisation (regulatory)",
+    detail: "Since 20 May 2026, every tourist-rental ad must display a 13-digit town-hall registration number; non-compliance carries a civil fine up to €10,000. Decree 2026-196 (19 Mar 2026) designates a single public body to centralise platform activity data (address, residence status, nights) for municipal control regimes. Council of State (15 Jul 2026, No. 503274) upheld Paris's prior-authorisation regime for converting commercial premises to tourist rentals. Income-tax regime for furnished tourist rentals also tightened in spring 2026. Compliance load rising for Numa Paris / Lyon.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "In force",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "cyriljarnias.fr / lofficieldesmetiers.fr / thelocal.fr — Drive brief 21 Jul 2026"
+  },
+  {
     dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
     flag: "🇵🇹", city: "Lisbon", country: "Portugal",
     title: "Tourist tax raised to €4/night",
-    detail: "Increase with a cap on the number of taxable nights per stay.",
+    detail: "Increase with a cap on the number of taxable nights per stay. No further change announced for 2026 (confirmed 25 Jul 2026).",
     impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "In effect",
@@ -260,7 +270,7 @@ const rows = [
     dateSort: 202608, dateLabel: "Aug 2026", dateYear: "",
     flag: "🇵🇹", city: "Vila Nova de Gaia", country: "Portugal",
     title: "Tourist tax raised €2.50 → €3/night, charged year-round",
-    detail: "Vila Nova de Gaia (Porto metro, south bank — wine cellars district) raised its city tax from €2.50 to €3.00 per night, now matching Porto, and applied all year (previous seasonal distinction already removed in 2023). The €3.00 rate was formally published in Diário da República on 22 Jul 2026 and enters force ~21 Aug 2026 (30 days after publication) — the definitive legal act confirming the increase. Municipality cites €3.03m annual tourism costs and >1m overnight stays. Rationale: tourism pressure on public infrastructure. Numa exposure: NONE — no Numa units in the Gaia municipality (confirmed 22 Jul 2026). Monitored as a Porto-adjacent market in case the portfolio expands. CONFIRMED (official DR publication) 22 Jul 2026.",
+    detail: "Vila Nova de Gaia (Porto metro, south bank — wine cellars district) raised its city tax from €2.50 to €3.00 per night, now matching Porto, and applied all year (previous seasonal distinction already removed in 2023). The €3.00 rate was formally published in Diário da República on 22 Jul 2026 and enters force ~21 Aug 2026 (30 days after publication) — the definitive legal act confirming the increase. Municipality cites €3.03m annual tourism costs and >1m overnight stays (cost/stay €2.88). Exemptions: health-related stays + companions, disability ≥60%. Numa exposure: NONE — no Numa units in the Gaia municipality (confirmed 22 Jul 2026). Monitored as a Porto-adjacent market in case the portfolio expands. CONFIRMED (official DR publication) 22 Jul 2026.",
     impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "Official — in force ~21 Aug",
@@ -317,6 +327,16 @@ const rows = [
     srcClass: "src-official", srcLabel: "Official", srcNote: "stuttgart.de + Stuttgarter Nachrichten + AHGZ"
   },
   {
+    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
+    flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Edinburgh", country: "Scotland / UK",
+    title: "Visitor levy 5% — NOW LIVE (since 24 Jul 2026)",
+    detail: "Scotland's — and the UK's — first city-wide visitor levy took effect Fri 24 Jul 2026. 5% of accommodation cost charged BEFORE VAT, capped at 5 consecutive nights, applied year-round. Applies to any stay on/after 24 Jul 2026 booked on/after 1 Oct 2025. Explicitly covers hotels, aparthotels, self-catering apartments, B&Bs, hostels and STR. First payments to council due Oct 2026. Council targets up to £50m/yr. Numa / Native by Numa exposure: HIGH — levy is now collectable, confirm PMS/channel setup is live. STATUS: LIVE 24 Jul 2026.",
+    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
+    status: "done", statusLabel: "✅ Done",
+    likelihood: 100, likeClass: "fill-done", likeLabel: "LIVE since 24 Jul",
+    srcClass: "src-official", srcLabel: "Official", srcNote: "edinburgh.gov.uk — levy in effect 24 Jul 2026 / Euronews"
+  },
+  {
     dateSort: 202608, dateLabel: "Aug 2026", dateYear: "",
     flag: "🇩🇪", city: "Munich (STR)", country: "Germany",
     title: "Mandatory STR registration number from 1 Aug 2026 (NEW)",
@@ -338,16 +358,6 @@ const rows = [
     srcClass: "src-official", srcLabel: "Official", srcNote: "European Commission announcement / vatcalc.com"
   },
   {
-    dateSort: 202607, dateLabel: "Jul 2026", dateYear: "",
-    flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", city: "Edinburgh", country: "Scotland / UK",
-    title: "Visitor levy 5% — active from 24 Jul 2026 (GOES LIVE TOMORROW, Fri 24 Jul)",
-    detail: "Edinburgh Council confirmed 5% levy on accommodation cost, capped at first 5 nights. Live from 24 July 2026. Applies to bookings made on/after 1 Oct 2025 for stays from 24 Jul. Applies to hotels, B&Bs, STR, hostels. First payments due Oct 2026. Scotland Visitor Levy (Amendment) Act (Royal Assent 21 May 2026) gives councils flexibility on fixed vs. % charging — Edinburgh stays percentage-based. Numa Native by Numa exposure: HIGH.",
-    impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
-    status: "confirmed", statusLabel: "📅 Confirmed",
-    likelihood: 100, likeClass: "fill-done", likeLabel: "Confirmed by council",
-    srcClass: "src-official", srcLabel: "Official", srcNote: "edinburgh.gov.uk — levy declared Jul 2026"
-  },
-  {
     dateSort: 202610, dateLabel: "2026 (possible)", dateYear: "",
     flag: "🇮🇹", city: "Milan", country: "Italy",
     title: "Olympics surcharge +€5/night (if activated)",
@@ -361,11 +371,11 @@ const rows = [
     dateSort: 202700, dateLabel: "2027", dateYear: "",
     flag: "🇳🇱", city: "Amsterdam", country: "Netherlands",
     title: "Tourist tax 12.5% → 16% (2027), rising to 20% by 2031",
-    detail: "PRO Amsterdam + D66 coalition agreement (June 2026, formally confirmed — council vote still required). Rising +1pp/year to 20% in 2031. Combined burden >33.5% in 2027. KHN (Dutch hospitality assoc.) opposing but also opposed 12.5% which passed anyway. High practical risk. Confidence upgraded 80%→85% (14 Jul 2026), 85%→90% (16 Jul 2026), confirmed 90% (17 Jul 2026) — Drive brief 14 Jul + Skift confirmation. Numa YAYS exposure: HIGH.",
+    detail: "PRO Amsterdam + D66 coalition agreement (June 2026, formally confirmed — council vote still required). Rising +1pp/year to 20% in 2031. Combined burden >33.5% in 2027. KHN (Dutch hospitality assoc.) opposing and calling for a national cap; overnight stays fell for first time in 10 years (Rabobank, linked to VAT rise + tourist-tax hikes). High practical risk. Confidence 90% (17 Jul 2026). Numa YAYS exposure: HIGH.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 90, likeClass: "fill-high", likeLabel: "Coalition confirmed (vote pending)",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Hospitality Management NL / NOS / KHN — coalition agreement confirmed Jun 2026"
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Hospitality Management NL / NOS / KHN / hotelvak.eu — coalition agreement confirmed Jun 2026"
   },
   {
     dateSort: 202700, dateLabel: "Jul 2027", dateYear: "",
@@ -502,19 +512,29 @@ const rows = [
   {
     dateSort: 202605, dateLabel: "May 2026", dateYear: "",
     flag: "🇮🇹", city: "Florence (STR)", country: "Italy",
-    title: "STR ban expanded to 9 districts beyond UNESCO area",
-    detail: "City Council voted May 2026 to extend ban on new short-term tourist lets from UNESCO historic centre to 9 surrounding districts, adding ~67,000 homes (total >100,000 in restriction zone). TAR Tuscany upheld restrictions in 19 legal challenges. Existing licences: 5-year validity, then expire.",
+    title: "STR ban expanded to 9 districts beyond UNESCO area; 5-year licences from 2028",
+    detail: "City Council voted May 2026 to extend ban on new short-term tourist lets from UNESCO historic centre to 9 surrounding districts, adding ~67,000 homes (total >100,000 in restriction zone). Moratorium on new STR licences runs through 2028; from 2028, five-year licences with non-automatic renewal (city may cut B&B numbers every 5 years on impact). TAR Tuscany upheld restrictions. Existing licences: 5-year validity.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "Confirmed",
-    srcClass: "src-official", srcLabel: "Official", srcNote: "The Florentine (May 2026) / TAR Tuscany n.925/2026 / thelocal.it"
+    srcClass: "src-official", srcLabel: "Official", srcNote: "The Florentine / finestresullarte.info / TAR Tuscany n.925/2026"
+  },
+  {
+    dateSort: 202701, dateLabel: "Jan 2027", dateYear: "",
+    flag: "🇧🇪", city: "Brussels (STR)", country: "Belgium",
+    title: "STR rules eased for private/resident hosts (pros unaffected)",
+    detail: "From 1 Jan 2027 Brussels removes the urban-planning-certificate requirement for private individuals renting <90 days/yr or their main residence, and drops the unanimity rule for co-ownership approval. Professional / non-resident operators STILL need the certificate. Announced 14 Jul 2026; min-president Dilliès called prior rules 'Kafkaesque'. Numa exposure LOW (professional operator) — informational. Airbnb listings already down 23% YoY (6,171→4,750).",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 90, likeClass: "fill-high", likeLabel: "Announced (law)",
+    srcClass: "src-single", srcLabel: "Press", srcNote: "brief.news (14 Jul 2026) — Drive brief 21 Jul 2026"
   },
   // ─── UNDER DISCUSSION ─────────────────────────────────────────────────────
   {
     dateSort: 202612, dateLabel: "2026 (imminent)", dateYear: "",
     flag: "🇦🇹", city: "Vienna (STR)", country: "Austria",
     title: "Mandatory STR registration + 80% residential floor area rule",
-    detail: "Mayor Ludwig announced (22–23 Jun 2026): all STR hosts must register or face fines up to €50,000; buildings limited to max 20% tourist accommodation use; separate entrances and minimum rooms required for commercial STRs. SPÖ–NEOS coalition agreement pending. Potential impact on any Numa/YAYS Vienna units classified as STR rather than hotel.",
+    detail: "Mayor Ludwig announced (22–23 Jun 2026): all STR hosts must register or face fines up to €50,000; buildings limited to max 20% tourist accommodation use; separate entrances and minimum rooms required for commercial STRs. Landlord register (EU-regulation based) promised before summer but concept not yet published (Greens criticise delay, 14 Jul 2026). SPÖ–NEOS coalition agreement pending. Potential impact on any Numa/YAYS Vienna units classified as STR rather than hotel.",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 65, likeClass: "fill-med", likeLabel: "~65%",
@@ -603,12 +623,12 @@ const rows = [
   {
     dateSort: 999907, dateLabel: "TBD", dateYear: "",
     flag: "🇨🇿", city: "Prague", country: "Czech Republic",
-    title: "Tourist tax increase — cap raise CZK 50 → 100 (national), Prague 1 wants 200",
-    detail: "Current rate: CZK 50 (~€2)/person/night. Czech MPs backing national cap raise to CZK 100 (~€4). Prague 1 district wants CZK 200 (~€8). Decision expected late 2026/early 2027. If passed, new rates effective 2027. Confidence upgraded 38%→50% (14 Jul 2026), 50%→55% (17 Jul 2026) — Drive brief 14 Jul + web sources confirm intensifying advocacy.",
+    title: "Tourist fee reform: national range CZK 0–200/night, Prague 1 wants 4× hike to CZK 200",
+    detail: "Current rate: CZK 50 (~€2)/person/night. Proposed national framework would let municipalities set CZK 0–200 per person/night by tourism impact; Prague 1 adopted a resolution (Jul 2026) pushing a fourfold rise to ~CZK 200 (~€8). National review board decision was expected by mid-2026 — now overdue. If passed, new rates take effect 2027. Public support shown in 2025 referendum. Numa Prague exposure: potential ~4× per-night city fee from 2027. Confidence ~55% (advocacy intensifying, but no vote yet).",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "praguemorning.cz / expats.cz / schengenvisainfo.com — MPs backing cap raise Jul 2026"
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "praguemorning.cz / expats.cz / praguedaily.news / brief.news — Prague 1 resolution Jul 2026"
   },
   {
     dateSort: 999908, dateLabel: "TBD", dateYear: "",
