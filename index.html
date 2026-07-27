@@ -146,7 +146,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (27 Jul):</strong> Edinburgh 5% levy <strong>NOW LIVE (since Fri 24 Jul)</strong> — first UK city-wide visitor levy · <strong>Porto: mayor proposes €3 → €4/night</strong> to fund free transit (pending Tribunal de Contas) · Vila Nova de Gaia €3/night published in Diário da República 22 Jul — in force ~21 Aug 2026 · Prague CZK 0–200 (~€8) range under debate, rates 2027 if passed · Munich STR registration 1 Aug 2026 · Brussels eases STR for private hosts 1 Jan 2027 (pros unaffected) | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS/channel collection is running. Glasgow 25 Jan 2027 bookings apply now.
+  ⚠️ <strong>UPDATED (27 Jul):</strong> <strong>Spain: 21% VAT on tourist accommodation</strong> (10%→21%) in housing decree — postponed to after summer, could return in autumn (El País) · Edinburgh 5% levy <strong>NOW LIVE (since Fri 24 Jul)</strong> — first UK city-wide visitor levy · <strong>Porto: mayor proposes €3 → €4/night</strong> to fund free transit (pending Tribunal de Contas) · Vila Nova de Gaia €3/night published in Diário da República 22 Jul — in force ~21 Aug 2026 · Prague CZK 0–200 (~€8) range under debate, rates 2027 if passed · Munich STR registration 1 Aug 2026 · Brussels eases STR for private hosts 1 Jan 2027 (pros unaffected) | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS/channel collection is running. Glasgow 25 Jan 2027 bookings apply now.
 </div>
 
 <div class="filter-bar">
@@ -189,7 +189,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 
 <div class="footnote">
   Likelihood % = weighted score: Official legislation/enacted law = 100%; Official government announcement = 90%; Parliament/council vote passed = 85–95%; Coalition/governing agreement (council vote still required) = 70–80%; Multiple credible press + political momentum = 50–70%; Single source / early discussion = 20–40%. ⚠️ Rule: Coalition agreement ≠ council vote ≠ enacted law — each stage tracked separately.<br>
-  Data compiled 27 July 2026 (Monday scan — Drive brief 21 Jul read; new: Porto €3→€4 proposal; Edinburgh levy now live). Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
+  Data compiled 27 July 2026 (Monday scan — Drive brief 21 Jul read; new: Spain 21% VAT decree postponed, Porto €3→€4 proposal; Edinburgh levy now live). Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
 </div>
 
 <script>
@@ -275,6 +275,16 @@ const rows = [
     status: "discussion", statusLabel: "💬 Discussion",
     likelihood: 55, likeClass: "fill-med", likeLabel: "Proposed — pending",
     srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "CNN Portugal / Correio da Manhã / ECO — mayor Pedro Duarte, Feb–Jul 2026"
+  },
+  {
+    dateSort: 202609, dateLabel: "Autumn 2026", dateYear: "",
+    flag: "🇪🇸", city: "Spain — national", country: "Spain",
+    title: "VAT on tourist accommodation 10% → 21% (housing decree, postponed)",
+    detail: "Spanish Government postponed its housing Real Decreto until after the summer for lack of parliamentary support (El País, 27 Jul 2026; confirmed by AVVAPro). The decree would raise VAT on certain tourist accommodations from 10% to 21% — a direct cost risk to the Spain portfolio (Barcelona, Madrid, Valencia, Seville, Malaga). Postponement, not withdrawal: negotiations continue and it could return in autumn. Industry bodies (AVVAPro, Federatur, Pimec, Foment del Treball) lobby for the reduced 10% rate on fiscal-neutrality grounds vs. hotels and have engaged the CNMC on competition. Wider package also touches temporary rentals, contract extensions and landlord tax incentives. ACTION: quantify P&L impact of a 21% VAT scenario for Spain. WATCH 27 Jul 2026.",
+    impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
+    status: "discussion", statusLabel: "💬 Discussion",
+    likelihood: 50, likeClass: "fill-med", likeLabel: "Postponed — no majority",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "El País (27 Jul) / Federatur-Pimec-Foment / elNacional / AVVAPro"
   },
   {
     dateSort: 202608, dateLabel: "Aug 2026", dateYear: "",
