@@ -1,10 +1,4 @@
-<!DOCTYPE html><script type="application/json" id="cowork-artifact-meta">
-{
-  "name": "City Tax Tracker",
-  "schemaVersion": 1,
-  "description": "Sortable city tax & VAT tracker for all Numa European markets. Timeline-sorted, grouped by status (Done / Confirmed / Discussion), with likelihood scores derived from source quality. Filter by status, sort by date / likelihood / impact."
-}
-</script>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -146,7 +140,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (28 Jul):</strong> <strong>Spain: 21% VAT on tourist accommodation</strong> (10%→21%) — Consejo de Ministros expected to act today 28 Jul; VAT element reported postponed to after summer (El País), outcome pending · Edinburgh 5% levy <strong>NOW LIVE (since Fri 24 Jul)</strong> — first UK city-wide visitor levy · <strong>Porto: mayor proposes €3 → €4/night</strong> to fund free transit (pending Tribunal de Contas) · Vila Nova de Gaia €3/night published in Diário da República 22 Jul — in force ~21 Aug 2026 · Prague CZK 0–200 (~€8) range under debate, rates 2027 if passed · Munich STR registration 1 Aug 2026 · Brussels eases STR for private hosts 1 Jan 2027 (pros unaffected) | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS/channel collection is running. Glasgow 25 Jan 2027 bookings apply now.
+  ⚠️ <strong>UPDATED (28 Jul):</strong> <strong>Spain: 21% VAT on tourist accommodation</strong> (10%→21%) in housing decree — cabinet approval expected TODAY (28 Jul) was pulled; formally postponed to September for lack of a Congress majority (Galiciapress / El Confidencial) · Edinburgh 5% levy <strong>NOW LIVE (since Fri 24 Jul)</strong> — first UK city-wide visitor levy · <strong>Porto: mayor proposes €3 → €4/night</strong> to fund free transit (pending Tribunal de Contas) · Vila Nova de Gaia €3/night published in Diário da República 22 Jul — in force ~21 Aug 2026 · Prague CZK 0–200 (~€8) range under debate, rates 2027 if passed · Munich STR registration 1 Aug 2026 · Brussels eases STR for private hosts 1 Jan 2027 (pros unaffected) | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS/channel collection is running. Glasgow 25 Jan 2027 bookings apply now.
 </div>
 
 <div class="filter-bar">
@@ -189,7 +183,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 
 <div class="footnote">
   Likelihood % = weighted score: Official legislation/enacted law = 100%; Official government announcement = 90%; Parliament/council vote passed = 85–95%; Coalition/governing agreement (council vote still required) = 70–80%; Multiple credible press + political momentum = 50–70%; Single source / early discussion = 20–40%. ⚠️ Rule: Coalition agreement ≠ council vote ≠ enacted law — each stage tracked separately.<br>
-  Data compiled 28 July 2026 (Tuesday scan — no new findings; Spain decree outcome due today; Drive brief 21 Jul). Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
+  Data compiled 28 July 2026 (daily scan — Drive brief 21 Jul re-confirmed; Spain 21% VAT housing decree cabinet approval of 28 Jul pulled and pushed to September; Edinburgh 5% levy live since 24 Jul; Gaia €3 in force ~21 Aug; no new markets today). Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
 </div>
 
 <script>
@@ -280,21 +274,21 @@ const rows = [
     dateSort: 202609, dateLabel: "Autumn 2026", dateYear: "",
     flag: "🇪🇸", city: "Spain — national", country: "Spain",
     title: "VAT on tourist accommodation 10% → 21% (housing decree, postponed)",
-    detail: "Spanish Government postponed its housing Real Decreto until after the summer for lack of parliamentary support (El País, 27 Jul 2026; confirmed by AVVAPro). The decree would raise VAT on certain tourist accommodations from 10% to 21% — a direct cost risk to the Spain portfolio (Barcelona, Madrid, Valencia, Seville, Malaga). Postponement, not withdrawal: negotiations continue and it could return in autumn. Industry bodies (AVVAPro, Federatur, Pimec, Foment del Treball) lobby for the reduced 10% rate on fiscal-neutrality grounds vs. hotels and have engaged the CNMC on competition. Wider package also touches temporary rentals, contract extensions and landlord tax incentives. Consejo de Ministros expected to act 28 Jul; outcome pending. ACTION: quantify P&L impact of a 21% VAT scenario for Spain. WATCH updated 28 Jul 2026.",
+    detail: "The housing Real Decreto was scheduled for Council of Ministers approval on Tue 28 Jul 2026 but was PULLED and formally postponed to September for lack of a guaranteed Congress majority (Galiciapress / El Confidencial / La Cronista, 26–28 Jul 2026). The decree would raise VAT on tourist accommodations from 10% to 21% to equate their treatment to an economic activity — a direct cost risk to the Spain portfolio (Barcelona, Madrid, Valencia, Seville, Malaga). Postponement, not withdrawal: Sumar still expects a September agreement; other parties opposed. Wider package also covers season/room rentals, contract extensions to 2028, written-contract rules and IRPF landlord incentives. ACTION: quantify P&L impact of a 21% VAT scenario for Spain. WATCH 28 Jul 2026.",
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "discussion", statusLabel: "💬 Discussion",
-    likelihood: 50, likeClass: "fill-med", likeLabel: "Postponed — no majority",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "El País (27 Jul) / Federatur-Pimec-Foment / elNacional / AVVAPro"
+    likelihood: 50, likeClass: "fill-med", likeLabel: "Postponed to Sept — no majority",
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Galiciapress / El Confidencial / La Cronista / Hosteltur — 28 Jul cabinet approval pulled"
   },
   {
     dateSort: 202608, dateLabel: "Aug 2026", dateYear: "",
     flag: "🇵🇹", city: "Vila Nova de Gaia", country: "Portugal",
     title: "Tourist tax raised €2.50 → €3/night, charged year-round",
-    detail: "Vila Nova de Gaia (Porto metro, south bank — wine cellars district) raised its city tax from €2.50 to €3.00 per night, now matching Porto, and applied all year (previous seasonal distinction already removed in 2023). The €3.00 rate was formally published in Diário da República on 22 Jul 2026 and enters force ~21 Aug 2026 (30 days after publication) — the definitive legal act confirming the increase. Municipality cites €3.03m annual tourism costs and >1m overnight stays (cost/stay €2.88). Exemptions: health-related stays + companions, disability ≥60%. Numa exposure: NONE — no Numa units in the Gaia municipality (confirmed 22 Jul 2026). Monitored as a Porto-adjacent market in case the portfolio expands. CONFIRMED (official DR publication) 22 Jul 2026.",
+    detail: "Vila Nova de Gaia (Porto metro, south bank — wine cellars district) raised its city tax from €2.50 to €3.00 per night, now matching Porto, applied all year. The €3.00 rate was formally published in Diário da República on 22 Jul 2026 and enters force ~21 Aug 2026 (30 days after publication) — the definitive legal act confirming the increase. Municipality cites €3.03m annual tourism costs and >1m overnight stays (cost/stay €2.88). Exemptions: health-related stays + companions, disability ≥60%, guests under 16. Numa exposure: NONE — no Numa units in the Gaia municipality (confirmed 22 Jul 2026). Monitored as a Porto-adjacent market in case the portfolio expands. CONFIRMED (official DR publication) 22 Jul 2026.",
     impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
     status: "done", statusLabel: "✅ Done",
     likelihood: 100, likeClass: "fill-done", likeLabel: "Official — in force ~21 Aug",
-    srcClass: "src-official", srcLabel: "Official", srcNote: "Diário da República (pub. 22 Jul 2026) + cm-gaia.pt / Público / Publituris"
+    srcClass: "src-official", srcLabel: "Official", srcNote: "Diário da República (pub. 22 Jul 2026) + cm-gaia.pt / Publituris / Turisver"
   },
   {
     dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
@@ -644,11 +638,11 @@ const rows = [
     dateSort: 999907, dateLabel: "TBD", dateYear: "",
     flag: "🇨🇿", city: "Prague", country: "Czech Republic",
     title: "Tourist fee reform: national range CZK 0–200/night, Prague 1 wants 4× hike to CZK 200",
-    detail: "Current rate: CZK 50 (~€2)/person/night. Proposed national framework would let municipalities set CZK 0–200 per person/night by tourism impact; Prague 1 adopted a resolution (Jul 2026) pushing a fourfold rise to ~CZK 200 (~€8). National review board decision was expected by mid-2026 — now overdue. If passed, new rates take effect 2027. Public support shown in 2025 referendum. Numa Prague exposure: potential ~4× per-night city fee from 2027. Confidence ~55% (advocacy intensifying, but no vote yet).",
+    detail: "Current rate: CZK 50 (~€2)/person/night. Proposed national framework would let municipalities set CZK 0–200 per person/night by tourism impact; Prague 1 adopted a resolution (Jul 2026) pushing a fourfold rise to ~CZK 200 (~€8). National review board decision was expected by mid-2026 — now overdue. Drive brief (21 Jul 2026) confirms CZK 0–200 range still under legislative debate; Prague collected CZK 933m in accommodation fees in 2025. If passed, new rates take effect 2027. Public support shown in 2025 referendum. Numa Prague exposure: potential ~4× per-night city fee from 2027. Confidence ~55% (advocacy intensifying, but no vote yet).",
     impact: "notable", impactLabel: "🟠 Notable", impactOrder: 2,
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "praguemorning.cz / expats.cz / praguedaily.news / brief.news — Prague 1 resolution Jul 2026"
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "praguemorning.cz / expats.cz / brief.news — Prague 1 resolution Jul 2026 / Drive brief 21 Jul"
   },
   {
     dateSort: 999908, dateLabel: "TBD", dateYear: "",
