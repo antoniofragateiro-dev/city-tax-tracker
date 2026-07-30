@@ -140,7 +140,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 </div>
 
 <div class="alert-strip">
-  ⚠️ <strong>UPDATED (29 Jul):</strong> Daily scan re-confirmed all live items. <strong>Spain: 21% VAT on tourist accommodation</strong> (10%→21%) + IBI surcharge in housing decree — cabinet approval of 28 Jul was pulled; the decree is formally postponed to autumn (September) for lack of a Congress majority (elDiario / Preferente, checked 29 Jul). Postponement ≠ withdrawal. · Edinburgh 5% levy <strong>NOW LIVE (since Fri 24 Jul)</strong> — first UK city-wide visitor levy · <strong>Porto: mayor proposes €3 → €4/night</strong> to fund free transit (pending Tribunal de Contas) · Vila Nova de Gaia €3/night published in Diário da República 22 Jul — in force ~21 Aug 2026 · Bremen citytax 5.5% (active since Jan 2026) · Prague CZK 0–200 (~€8) range under debate, rates 2027 if passed · Munich STR registration 1 Aug 2026 · Brussels eases STR for private hosts 1 Jan 2027 (pros unaffected) | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS/channel collection is running. Glasgow 25 Jan 2027 bookings apply now.
+  ⚠️ <strong>UPDATED (30 Jul):</strong> Daily scan (Drive brief 28 Jul) re-confirmed all live items. <strong>Spain: 21% VAT on tourist accommodation</strong> (10%→21%) housing decree remains formally postponed to September for lack of a Congress majority (Catalunya Press, checked 29 Jul). Postponement ≠ withdrawal. · <strong>Milan: national govt proposal to cap tourist tax €12 → €5</strong> (~€30m/yr less for the city) — favourable signal; Milan officials opposing · Edinburgh 5% levy <strong>LIVE (since 24 Jul)</strong> · <strong>Barcelona: municipal cruise-stopover tax €4 → €24</strong> voted in commission 15 Jul (€30 combined w/ regional) · <strong>Paris: vacant-home tax doubles 1 Jan 2027</strong> (30% after 1yr / 60% after 2yr) + Loi Le Meur STR fines €10k–€20k · Vila Nova de Gaia €3/night (DR 22 Jul, in force ~21 Aug) · Stuttgart €3/night live since 1 Jul | <strong>ACTION:</strong> Edinburgh 5% levy is LIVE — confirm PMS/channel collection is running. Quantify Spain 21% VAT P&L scenario before September.
 </div>
 
 <div class="filter-bar">
@@ -183,7 +183,7 @@ td:last-child { border-radius: 0 6px 6px 0; padding-right: 14px; }
 
 <div class="footnote">
   Likelihood % = weighted score: Official legislation/enacted law = 100%; Official government announcement = 90%; Parliament/council vote passed = 85–95%; Coalition/governing agreement (council vote still required) = 70–80%; Multiple credible press + political momentum = 50–70%; Single source / early discussion = 20–40%. ⚠️ Rule: Coalition agreement ≠ council vote ≠ enacted law — each stage tracked separately.<br>
-  Data compiled 29 July 2026 (daily scan — Drive brief 21 Jul re-read; Spain 21% VAT housing decree confirmed still postponed to autumn/September, checked 29 Jul; Edinburgh 5% levy live since 24 Jul; Bremen citytax 5.5% and Prague CZK 0–200 range re-confirmed; Lisbon/Porto/Gaia unchanged; no new markets today). Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
+  Data compiled 30 July 2026 (daily scan — Drive brief 28 Jul re-read; Spain 21% VAT housing decree re-confirmed still postponed to September, checked 29 Jul; Milan national rollback €12→€5 proposal noted; Barcelona municipal cruise component €24 (15 Jul commission vote); Paris vacant-home tax doubling 1 Jan 2027 added; Edinburgh 5% levy live since 24 Jul; Gaia €3/night confirmed (DR 22 Jul); Lisbon/Porto unchanged; no new markets today). Refreshed daily by scheduled AI scan at 08:00. · Numa Finance & Revenue teams.
 </div>
 
 <script>
@@ -241,6 +241,16 @@ const rows = [
     srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "cyriljarnias.fr / lofficieldesmetiers.fr / thelocal.fr — Drive brief 21 Jul 2026"
   },
   {
+    dateSort: 202701, dateLabel: "Jan 2027", dateYear: "",
+    flag: "🇫🇷", city: "Paris", country: "France",
+    title: "Vacant-home tax (TLV) doubles: 30% after 1yr / 60% after 2yr",
+    detail: "Financial Act 2026 doubles Paris's taxe sur les logements vacants from 1 Jan 2027 — 17%→30% of cadastral rental value after 1 year vacant, 34%→60% after 2 years. City targets ~20,000 dwellings back to market. Direct Numa exposure LOW (operating units are not vacant) but raises holding-cost risk on any transitional/void inventory and signals a tougher Paris enforcement climate (July 2026: an owner + concierge each fined €220k for unlicensed tourist lets). Monitored. NEW 28 Jul 2026.",
+    impact: "minor", impactLabel: "🟢 Minor", impactOrder: 3,
+    status: "confirmed", statusLabel: "📅 Confirmed",
+    likelihood: 90, likeClass: "fill-high", likeLabel: "Enacted (Financial Act 2026)",
+    srcClass: "src-single", srcLabel: "Press", srcNote: "actusduweb.com / kohenavocats.fr — Drive brief 28 Jul 2026"
+  },
+  {
     dateSort: 202601, dateLabel: "Jan 2026", dateYear: "",
     flag: "🇵🇹", city: "Lisbon", country: "Portugal",
     title: "Tourist tax raised to €4/night",
@@ -278,7 +288,7 @@ const rows = [
     impact: "critical", impactLabel: "🔴 Critical", impactOrder: 1,
     status: "discussion", statusLabel: "💬 Discussion",
     likelihood: 50, likeClass: "fill-med", likeLabel: "Postponed to Sept — no majority",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Galiciapress / El Confidencial / La Cronista / Hosteltur — 28 Jul cabinet approval pulled"
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "Galiciapress / El Confidencial / Hosteltur — 28 Jul cabinet approval pulled; re-confirmed postponed to Sept (Catalunya Press 29 Jul 2026)"
   },
   {
     dateSort: 202608, dateLabel: "Aug 2026", dateYear: "",
@@ -668,11 +678,11 @@ const rows = [
     dateSort: 202700, dateLabel: "Jan 2027 (watch)", dateYear: "",
     flag: "🇮🇹", city: "Milan", country: "Italy",
     title: "Tourist tax reversion after Olympics — rates may drop back to 2025 levels",
-    detail: "Milan's 2026 rates (5★: €12; 4★: €10; STR/B&B: €9.50) are temporary, approved only for 2026 (Milano-Cortina Winter Olympics, Resolution 1418 Nov 2025 + Resolution 144 Feb 2026). From Jan 2027, city expected to revert to pre-Olympic levels unless a new council resolution is passed. Favorable signal for Numa Milan properties. Monitor council sessions Q4 2026. NEW 15 Jul 2026.",
+    detail: "Milan's 2026 rates (5★: €12; 4★: €10; STR/B&B: €9.50) are temporary, approved only for 2026 (Milano-Cortina Winter Olympics, Resolution 1418 Nov 2025 + Resolution 144 Feb 2026). From Jan 2027, city expected to revert to pre-Olympic levels unless a new council resolution is passed. Update 28 Jul: national government floating a cap that would cut Milan's tourist tax to €5 (~€30m/yr less for the city); Milan officials oppose it and seek art-city parity with Rome/Florence/Venice (limited progress with Tourism Minister Mazzi). Favorable signal for Numa Milan properties. Monitor council sessions Q4 2026. NEW 15 Jul 2026.",
     impact: "favourable", impactLabel: "💜 Favourable", impactOrder: 4,
     status: "watch", statusLabel: "🔍 Discussing",
     likelihood: 55, likeClass: "fill-med", likeLabel: "~55%",
-    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "direzionehotel.it / wantedinmilan.com — resolution specifies 2026-only"
+    srcClass: "src-multi", srcLabel: "Multi-press", srcNote: "direzionehotel.it / wantedinmilan.com + Mahalsa/ItaliaParlare 22 Jul 2026 (national cap proposal)"
   },
   {
     dateSort: 202700, dateLabel: "2027 (proposed)", dateYear: "",
